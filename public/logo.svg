@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none">
+  <!-- Buildings / Skyline -->
+  <g>
+    <!-- Arc base -->
+    <path d="M10 56 Q50 44 90 56" stroke="#C4622D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- Building 1 (far left, short) -->
+    <rect x="16" y="46" width="7" height="10" fill="#C4622D"/>
+    <!-- Building 2 -->
+    <rect x="26" y="40" width="7" height="16" fill="#C4622D"/>
+    <!-- Building 3 (tallest) -->
+    <rect x="36" y="30" width="8" height="26" fill="#C4622D"/>
+    <!-- Building 4 (center-right tall) -->
+    <rect x="47" y="34" width="8" height="22" fill="#C4622D"/>
+    <!-- Building 5 -->
+    <rect x="58" y="38" width="7" height="18" fill="#C4622D"/>
+    <!-- Building 6 -->
+    <rect x="68" y="43" width="7" height="13" fill="#C4622D"/>
+    <!-- Building 7 (far right, short) -->
+    <rect x="78" y="47" width="6" height="9" fill="#C4622D"/>
+    <!-- Vertical lines on tallest buildings -->
+    <line x1="40" y1="30" x2="40" y2="56" stroke="white" stroke-width="1" opacity="0.5"/>
+    <line x1="44" y1="30" x2="44" y2="56" stroke="white" stroke-width="1" opacity="0.5"/>
+    <line x1="51" y1="34" x2="51" y2="56" stroke="white" stroke-width="1" opacity="0.5"/>
+    <line x1="55" y1="34" x2="55" y2="56" stroke="white" stroke-width="1" opacity="0.5"/>
+  </g>
+  <!-- GROWTH text -->
+  <text x="100" y="44" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="28" fill="#2D2D2D" letter-spacing="1">GROWTH</text>
+  <!-- HEAD QUARTER text -->
+  <text x="100" y="62" font-family="Arial, sans-serif" font-weight="700" font-size="13" fill="#4D4D4D" letter-spacing="3">HEAD QUARTER</text>
+</svg>
