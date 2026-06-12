@@ -1,44 +1,44 @@
 @import "tailwindcss";
 
-/* ── Brand Color Tokens (Growth HQ: Orange + Charcoal) ── */
+/* ── Brand Color Tokens (Growth HQ: Cloud + Electric Blue) ── */
 :root {
   --background: #ffffff;
-  --foreground: #1a1a1a;
+  --foreground: #0d1117;
   --card: #ffffff;
-  --card-foreground: #1a1a1a;
-  --border: #e8e8e4;
-  --muted: #f7f6f3;
+  --card-foreground: #0d1117;
+  --border: #ebeef5;
+  --muted: #f6f8fc;
   --muted-foreground: #6b7280;
-  --primary: #C4622D;
-  --primary-light: #E07840;
-  --primary-dark: #A5511F;
+  --primary: #3B6FF6;
+  --primary-light: #6E97FF;
+  --primary-dark: #2554D8;
   --primary-foreground: #ffffff;
-  --secondary: #f5f4f0;
-  --accent: #fdf0e8;
-  --ring: #C4622D;
-  --charcoal: #2D2D2D;
-  --charcoal-soft: #4D4D4D;
+  --secondary: #f3f5fb;
+  --accent: #eef3ff;
+  --ring: #3B6FF6;
+  --charcoal: #0d1117;
+  --charcoal-soft: #41485a;
   --radius: 0.75rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0f0e0c;
-    --foreground: #f5f4f0;
-    --card: #1a1916;
-    --card-foreground: #f5f4f0;
-    --border: #2a2824;
-    --muted: #201f1c;
+    --background: #0a0d14;
+    --foreground: #f4f6fb;
+    --card: #11141d;
+    --card-foreground: #f4f6fb;
+    --border: #1e2330;
+    --muted: #141823;
     --muted-foreground: #9ca3af;
-    --primary: #E07840;
-    --primary-light: #F08A52;
-    --primary-dark: #C4622D;
+    --primary: #6E97FF;
+    --primary-light: #8FACFF;
+    --primary-dark: #3B6FF6;
     --primary-foreground: #ffffff;
-    --secondary: #2a2824;
-    --accent: #2a1e12;
-    --ring: #E07840;
-    --charcoal: #f5f4f0;
-    --charcoal-soft: #d1cfc9;
+    --secondary: #1a1f2b;
+    --accent: #0e1730;
+    --ring: #6E97FF;
+    --charcoal: #f4f6fb;
+    --charcoal-soft: #c7ccd9;
   }
 }
 
@@ -71,43 +71,73 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Gradient text — brand orange ── */
+/* ── Gradient text — electric blue ── */
 .gradient-text {
-  background: linear-gradient(135deg, #C4622D, #E8943A);
+  background: linear-gradient(135deg, #3B6FF6, #7DA0FF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-dark {
-  background: linear-gradient(135deg, #2D2D2D, #C4622D);
+  background: linear-gradient(135deg, #0d1117, #3B6FF6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ── Section label pill ── */
+/* ── Section label — subtle dotted eyebrow (reference style) ── */
 .section-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 5px 14px;
-  border-radius: 9999px;
-  background: #fdf0e8;
-  color: #C4622D;
-  font-size: 0.75rem;
+  gap: 7px;
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  border: 1px solid rgba(196, 98, 45, 0.2);
+  color: var(--muted-foreground);
+}
+.section-pill::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: #3B6FF6;
+  display: inline-block;
+}
+
+/* ── Soft cloud gradient backdrop (hero / CTA) ── */
+.cloud-bg {
+  background:
+    radial-gradient(60% 50% at 18% 8%, rgba(247, 211, 232, 0.65), transparent 70%),
+    radial-gradient(55% 50% at 82% 4%, rgba(206, 217, 245, 0.7), transparent 70%),
+    radial-gradient(70% 60% at 50% 0%, rgba(217, 201, 240, 0.55), transparent 75%),
+    linear-gradient(180deg, #eef1fb 0%, #ffffff 62%);
+}
+@media (prefers-color-scheme: dark) {
+  .cloud-bg {
+    background:
+      radial-gradient(60% 50% at 18% 8%, rgba(91, 58, 120, 0.45), transparent 70%),
+      radial-gradient(55% 50% at 82% 4%, rgba(40, 64, 130, 0.5), transparent 70%),
+      radial-gradient(70% 60% at 50% 0%, rgba(60, 50, 110, 0.4), transparent 75%),
+      linear-gradient(180deg, #0c1020 0%, #0a0d14 62%);
+  }
 }
 
 /* ── Card hover lift ── */
 .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .card-hover:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 48px rgba(196, 98, 45, 0.1);
+  box-shadow: 0 16px 48px rgba(59, 111, 246, 0.12);
 }
+
+/* ── Soft float for hero cards ── */
+@keyframes softFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.float-slow { animation: softFloat 6s ease-in-out infinite; }
+.float-med  { animation: softFloat 5s ease-in-out infinite; }
 
 /* ── Glass ── */
 .glass {
@@ -119,7 +149,7 @@ body {
 
 /* ── Animated gradient bg ── */
 .animated-gradient {
-  background: linear-gradient(-45deg, #C4622D, #E8943A, #2D2D2D, #C4622D);
+  background: linear-gradient(-45deg, #3B6FF6, #7DA0FF, #0d1117, #3B6FF6);
   background-size: 400% 400%;
   animation: gradient-shift 8s ease infinite;
 }
@@ -131,9 +161,9 @@ body {
 
 /* ── Pulse ring ── */
 @keyframes pulse-ring {
-  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(196, 98, 45, 0.4); }
-  70%  { transform: scale(1);    box-shadow: 0 0 0 10px rgba(196, 98, 45, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(196, 98, 45, 0); }
+  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(59, 111, 246, 0.4); }
+  70%  { transform: scale(1);    box-shadow: 0 0 0 10px rgba(59, 111, 246, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(59, 111, 246, 0); }
 }
 .pulse-ring { animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite; }
 
@@ -164,7 +194,7 @@ body {
 .section-divider {
   width: 48px;
   height: 3px;
-  background: linear-gradient(90deg, #C4622D, #E8943A);
+  background: linear-gradient(90deg, #3B6FF6, #7DA0FF);
   border-radius: 2px;
   margin: 0 auto;
 }

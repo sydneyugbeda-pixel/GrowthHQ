@@ -17,26 +17,26 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-[#C4622D] text-white hover:bg-[#A5511F] active:bg-[#8E4419] shadow-sm shadow-orange-500/20",
+    "bg-[#3B6FF6] text-white hover:bg-[#2554D8] active:bg-[#1D44B8] shadow-sm shadow-blue-500/20",
   gradient:
-    "bg-gradient-to-r from-[#C4622D] to-[#E8943A] text-white hover:from-[#A5511F] hover:to-[#D4823A] shadow-sm shadow-orange-500/25",
+    "bg-[#0d1117] text-white hover:bg-[#1c2433] active:bg-black shadow-md shadow-black/15 dark:bg-white dark:text-[#0d1117] dark:hover:bg-[#e8ecf5]",
   charcoal:
-    "bg-[#2D2D2D] text-white hover:bg-[#1a1a1a] active:bg-black shadow-sm",
+    "bg-[#0d1117] text-white hover:bg-[#1c2433] active:bg-black shadow-sm",
   secondary:
-    "bg-[#f5f4f0] text-[#2D2D2D] hover:bg-[#ece9e3] dark:bg-[#2a2824] dark:text-[#f5f4f0] dark:hover:bg-[#333028]",
+    "bg-[#f3f5fb] text-[#0d1117] hover:bg-[#e7ecf7] dark:bg-[#1a1f2b] dark:text-[#f4f6fb] dark:hover:bg-[#222838]",
   ghost:
-    "text-[#4D4D4D] hover:bg-[#f5f4f0] dark:text-[#d1cfc9] dark:hover:bg-[#2a2824]",
+    "text-[#41485a] hover:bg-[#f3f5fb] dark:text-[#c7ccd9] dark:hover:bg-[#1a1f2b]",
   outline:
-    "border border-[#e8e8e4] text-[#2D2D2D] hover:bg-[#f7f6f3] hover:border-[#C4622D] dark:border-[#2a2824] dark:text-[#f5f4f0] dark:hover:bg-[#2a2824]",
+    "border border-[#dfe4ef] text-[#0d1117] bg-white/60 backdrop-blur hover:bg-white hover:border-[#3B6FF6] dark:border-[#2a3142] dark:text-[#f4f6fb] dark:bg-white/5 dark:hover:bg-white/10",
   destructive:
     "bg-red-500 text-white hover:bg-red-600 active:bg-red-700 shadow-sm",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm:   "h-8 px-3 text-sm rounded-lg gap-1.5",
-  md:   "h-10 px-4 text-sm rounded-xl gap-2",
-  lg:   "h-12 px-6 text-base rounded-xl gap-2",
-  icon: "h-10 w-10 rounded-xl",
+  sm:   "h-9 px-4 text-sm rounded-full gap-1.5",
+  md:   "h-11 px-5 text-sm rounded-full gap-2",
+  lg:   "h-[52px] px-7 text-base rounded-full gap-2",
+  icon: "h-10 w-10 rounded-full",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -46,7 +46,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         disabled={disabled || loading}
         className={cn(
-          "inline-flex items-center justify-center font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C4622D] focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer select-none",
+          "inline-flex items-center justify-center font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B6FF6] focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer select-none",
           variants[variant],
           sizes[size],
           className

@@ -72,7 +72,7 @@ export function Testimonials() {
           {testimonials.map((t, i) => (
             <div
               key={t.name}
-              className="group bg-white dark:bg-[#1a1916] rounded-2xl p-6 border border-[#e8e8e4] dark:border-[#2a2824] hover:border-[#C4622D]/30 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col"
+              className="group bg-white dark:bg-[#1a1916] rounded-2xl p-6 border border-[#e8e8e4] dark:border-[#2a2824] hover:border-[#3B6FF6]/30 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
               {/* Stars */}
               <div className="flex gap-0.5 mb-4">
@@ -82,7 +82,7 @@ export function Testimonials() {
               </div>
 
               {/* Highlight badge */}
-              <div className="inline-flex self-start items-center px-2.5 py-1 rounded-full bg-[#fdf0e8] dark:bg-[#2a1e12] text-[#C4622D] dark:text-[#E07840] text-xs font-bold mb-4 border border-[#C4622D]/15">
+              <div className="inline-flex self-start items-center px-2.5 py-1 rounded-full bg-[#eef3ff] dark:bg-[#0e1730] text-[#3B6FF6] dark:text-[#6E97FF] text-xs font-bold mb-4 border border-[#3B6FF6]/15">
                 {t.highlight}
               </div>
 

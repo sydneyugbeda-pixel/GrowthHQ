@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Sparkles, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 const perks = [
@@ -12,26 +12,34 @@ const perks = [
 
 export function CTA() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#f7f6f3] dark:bg-[#120f0c]">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0a0d14]">
       <div className="max-w-5xl mx-auto">
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#2D2D2D] via-[#1a1a1a] to-[#2D2D2D] p-12 sm:p-16 text-center shadow-2xl">
+        <div className="relative rounded-[2rem] overflow-hidden cloud-bg border border-[#ebeef5] dark:border-[#1e2330] p-12 sm:p-16 text-center shadow-[0_30px_90px_rgba(59,111,246,0.12)]">
 
-          {/* Subtle pattern */}
-          <div className="absolute inset-0 opacity-[0.04]"
-            style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "28px 28px" }} />
-
-          {/* Orange accent blobs */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#C4622D]/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#E8943A]/15 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
+          {/* Floating accent cards */}
+          <div className="hidden md:block absolute left-8 top-12 float-slow">
+            <div className="bg-white/85 dark:bg-[#11141d]/85 backdrop-blur-xl rounded-2xl p-3 border border-white/70 dark:border-white/10 shadow-lg">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-[#3B6FF6]" />
+                <span className="text-xs font-semibold text-[#0d1117] dark:text-white">Daily Journal</span>
+              </div>
+            </div>
+          </div>
+          <div className="hidden md:block absolute right-8 bottom-12 float-med">
+            <div className="bg-white/85 dark:bg-[#11141d]/85 backdrop-blur-xl rounded-2xl p-3 border border-white/70 dark:border-white/10 shadow-lg">
+              <div className="flex items-center gap-2">
+                <TrendingUp className="w-4 h-4 text-emerald-500" />
+                <span className="text-xs font-semibold text-[#0d1117] dark:text-white">78% growth</span>
+              </div>
+            </div>
+          </div>
 
           <div className="relative">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white text-xs font-semibold uppercase tracking-wider border border-white/15 mb-6">
-              Start growing today
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-4">
-              Tired of Spinning<br />Your Wheels?
+            <div className="section-pill justify-center mb-6">Start growing today</div>
+            <h2 className="text-4xl sm:text-5xl font-semibold text-[#0d1117] dark:text-white tracking-tight mb-4 leading-[1.08]">
+              Achieve operational<br />excellence with <span className="gradient-text">Growth HQ</span>
             </h2>
-            <p className="text-[#d1cfc9] text-lg mb-8 max-w-lg mx-auto leading-relaxed">
+            <p className="text-[#5b6478] dark:text-[#9ca3af] text-lg mb-8 max-w-lg mx-auto leading-relaxed">
               Let&apos;s get clear — and get moving. Join 10,000+ high performers leveling up
               with AI-powered growth coaching.
             </p>
@@ -39,30 +47,26 @@ export function CTA() {
             {/* Perks */}
             <div className="flex flex-wrap items-center justify-center gap-5 mb-10">
               {perks.map((p) => (
-                <span key={p} className="flex items-center gap-1.5 text-sm text-[#d1cfc9] font-medium">
-                  <CheckCircle className="w-4 h-4 text-[#E07840] shrink-0" />
+                <span key={p} className="flex items-center gap-1.5 text-sm text-[#41485a] dark:text-[#c7ccd9] font-medium">
+                  <CheckCircle className="w-4 h-4 text-[#3B6FF6] shrink-0" />
                   {p}
                 </span>
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link href="/auth/signup">
                 <Button
                   variant="gradient"
                   size="lg"
-                  className="px-10 shadow-xl shadow-orange-500/30 text-base font-bold"
+                  className="px-9"
                   iconRight={<ArrowRight className="w-5 h-5" />}
                 >
-                  Start a Free Business Smarter
+                  Get Started
                 </Button>
               </Link>
               <Link href="#pricing">
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  className="text-white hover:bg-white/10 border border-white/20 font-semibold"
-                >
+                <Button variant="outline" size="lg" className="px-7">
                   View Pricing
                 </Button>
               </Link>
