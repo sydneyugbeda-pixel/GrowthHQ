@@ -1,44 +1,44 @@
 @import "tailwindcss";
 
-/* ── Brand Color Tokens (Growth HQ: Cloud + Electric Blue) ── */
+/* ── Brand Color Tokens (Growth HQ: Warm Terracotta — from logo) ── */
 :root {
   --background: #ffffff;
-  --foreground: #0d1117;
+  --foreground: #2D2D2D;
   --card: #ffffff;
-  --card-foreground: #0d1117;
-  --border: #ebeef5;
-  --muted: #f6f8fc;
-  --muted-foreground: #6b7280;
-  --primary: #3B6FF6;
-  --primary-light: #6E97FF;
-  --primary-dark: #2554D8;
+  --card-foreground: #2D2D2D;
+  --border: #f0e8e2;
+  --muted: #faf6f3;
+  --muted-foreground: #7a6f68;
+  --primary: #C4622D;
+  --primary-light: #DD8348;
+  --primary-dark: #9E4D21;
   --primary-foreground: #ffffff;
-  --secondary: #f3f5fb;
-  --accent: #eef3ff;
-  --ring: #3B6FF6;
-  --charcoal: #0d1117;
-  --charcoal-soft: #41485a;
+  --secondary: #fbf3ee;
+  --accent: #fcf1ea;
+  --ring: #C4622D;
+  --charcoal: #2D2D2D;
+  --charcoal-soft: #4D4D4D;
   --radius: 0.75rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0d14;
-    --foreground: #f4f6fb;
-    --card: #11141d;
-    --card-foreground: #f4f6fb;
-    --border: #1e2330;
-    --muted: #141823;
-    --muted-foreground: #9ca3af;
-    --primary: #6E97FF;
-    --primary-light: #8FACFF;
-    --primary-dark: #3B6FF6;
+    --background: #161210;
+    --foreground: #f7f1ec;
+    --card: #1e1815;
+    --card-foreground: #f7f1ec;
+    --border: #322822;
+    --muted: #211a16;
+    --muted-foreground: #a99c93;
+    --primary: #DD8348;
+    --primary-light: #EBAE7E;
+    --primary-dark: #C4622D;
     --primary-foreground: #ffffff;
-    --secondary: #1a1f2b;
-    --accent: #0e1730;
-    --ring: #6E97FF;
-    --charcoal: #f4f6fb;
-    --charcoal-soft: #c7ccd9;
+    --secondary: #2a201b;
+    --accent: #2c1d12;
+    --ring: #DD8348;
+    --charcoal: #f7f1ec;
+    --charcoal-soft: #d8ccc3;
   }
 }
 
@@ -71,16 +71,16 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Gradient text — electric blue ── */
+/* ── Gradient text — terracotta ── */
 .gradient-text {
-  background: linear-gradient(135deg, #3B6FF6, #7DA0FF);
+  background: linear-gradient(135deg, #C4622D, #E59B63);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-dark {
-  background: linear-gradient(135deg, #0d1117, #3B6FF6);
+  background: linear-gradient(135deg, #2D2D2D, #C4622D);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -102,25 +102,25 @@ body {
   width: 5px;
   height: 5px;
   border-radius: 9999px;
-  background: #3B6FF6;
+  background: #C4622D;
   display: inline-block;
 }
 
 /* ── Soft cloud gradient backdrop (hero / CTA) ── */
 .cloud-bg {
   background:
-    radial-gradient(60% 50% at 18% 8%, rgba(247, 211, 232, 0.65), transparent 70%),
-    radial-gradient(55% 50% at 82% 4%, rgba(206, 217, 245, 0.7), transparent 70%),
-    radial-gradient(70% 60% at 50% 0%, rgba(217, 201, 240, 0.55), transparent 75%),
-    linear-gradient(180deg, #eef1fb 0%, #ffffff 62%);
+    radial-gradient(60% 50% at 18% 8%, rgba(247, 214, 196, 0.7), transparent 70%),
+    radial-gradient(55% 50% at 82% 4%, rgba(244, 198, 168, 0.65), transparent 70%),
+    radial-gradient(70% 60% at 50% 0%, rgba(250, 226, 209, 0.6), transparent 75%),
+    linear-gradient(180deg, #fbf2ec 0%, #ffffff 62%);
 }
 @media (prefers-color-scheme: dark) {
   .cloud-bg {
     background:
-      radial-gradient(60% 50% at 18% 8%, rgba(91, 58, 120, 0.45), transparent 70%),
-      radial-gradient(55% 50% at 82% 4%, rgba(40, 64, 130, 0.5), transparent 70%),
-      radial-gradient(70% 60% at 50% 0%, rgba(60, 50, 110, 0.4), transparent 75%),
-      linear-gradient(180deg, #0c1020 0%, #0a0d14 62%);
+      radial-gradient(60% 50% at 18% 8%, rgba(120, 64, 32, 0.45), transparent 70%),
+      radial-gradient(55% 50% at 82% 4%, rgba(150, 78, 40, 0.42), transparent 70%),
+      radial-gradient(70% 60% at 50% 0%, rgba(110, 60, 36, 0.4), transparent 75%),
+      linear-gradient(180deg, #1c150f 0%, #161210 62%);
   }
 }
 
@@ -128,7 +128,7 @@ body {
 .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .card-hover:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 48px rgba(59, 111, 246, 0.12);
+  box-shadow: 0 16px 48px rgba(196, 98, 45, 0.12);
 }
 
 /* ── Soft float for hero cards ── */
@@ -149,7 +149,7 @@ body {
 
 /* ── Animated gradient bg ── */
 .animated-gradient {
-  background: linear-gradient(-45deg, #3B6FF6, #7DA0FF, #0d1117, #3B6FF6);
+  background: linear-gradient(-45deg, #C4622D, #E59B63, #2D2D2D, #C4622D);
   background-size: 400% 400%;
   animation: gradient-shift 8s ease infinite;
 }
@@ -161,9 +161,9 @@ body {
 
 /* ── Pulse ring ── */
 @keyframes pulse-ring {
-  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(59, 111, 246, 0.4); }
-  70%  { transform: scale(1);    box-shadow: 0 0 0 10px rgba(59, 111, 246, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(59, 111, 246, 0); }
+  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(196, 98, 45, 0.4); }
+  70%  { transform: scale(1);    box-shadow: 0 0 0 10px rgba(196, 98, 45, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(196, 98, 45, 0); }
 }
 .pulse-ring { animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite; }
 
@@ -194,7 +194,7 @@ body {
 .section-divider {
   width: 48px;
   height: 3px;
-  background: linear-gradient(90deg, #3B6FF6, #7DA0FF);
+  background: linear-gradient(90deg, #C4622D, #E59B63);
   border-radius: 2px;
   margin: 0 auto;
 }

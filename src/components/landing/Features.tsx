@@ -96,12 +96,12 @@ export function Features() {
               variants={item}
               className={`group relative rounded-2xl p-6 border transition-all duration-300 hover:-translate-y-1 cursor-default ${
                 f.highlight
-                  ? "bg-gradient-to-br from-[#3B6FF6] to-[#6E97FF] border-transparent text-white shadow-xl shadow-blue-500/20"
-                  : "bg-white dark:bg-[#1a1916] border-[#e8e8e4] dark:border-[#2a2824] hover:border-[#3B6FF6]/30 hover:shadow-lg hover:shadow-blue-500/5"
+                  ? "bg-gradient-to-br from-[#C4622D] to-[#DD8348] border-transparent text-white shadow-xl shadow-blue-500/20"
+                  : "bg-white dark:bg-[#1a1916] border-[#e8e8e4] dark:border-[#2a2824] hover:border-[#C4622D]/30 hover:shadow-lg hover:shadow-blue-500/5"
               }`}
             >
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
-                f.highlight ? "bg-white/20 text-white" : "bg-[#eef3ff] dark:bg-[#0e1730] text-[#3B6FF6]"
+                f.highlight ? "bg-white/20 text-white" : "bg-[#eef3ff] dark:bg-[#0e1730] text-[#C4622D]"
               }`}>
                 {f.icon}
               </div>

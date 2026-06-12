@@ -28,11 +28,11 @@ export function Footer() {
 
             {/* Contact info like the reference */}
             <div className="space-y-2 mb-5">
-              <a href="mailto:hello@growthhq.io" className="flex items-center gap-2 text-sm text-[#9ca3af] hover:text-[#6E97FF] transition-colors">
+              <a href="mailto:hello@growthhq.io" className="flex items-center gap-2 text-sm text-[#9ca3af] hover:text-[#DD8348] transition-colors">
                 <Mail className="w-3.5 h-3.5 shrink-0" />
                 hello@growthhq.io
               </a>
-              <a href="tel:+15551234567" className="flex items-center gap-2 text-sm text-[#9ca3af] hover:text-[#6E97FF] transition-colors">
+              <a href="tel:+15551234567" className="flex items-center gap-2 text-sm text-[#9ca3af] hover:text-[#DD8348] transition-colors">
                 <Phone className="w-3.5 h-3.5 shrink-0" />
                 (555) 123-4567
               </a>
@@ -49,7 +49,7 @@ export function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-[#9ca3af] hover:text-white hover:bg-[#3B6FF6] transition-all"
+                  className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-[#9ca3af] hover:text-white hover:bg-[#C4622D] transition-all"
                 >
                   {social.icon}
                 </a>
@@ -64,7 +64,7 @@ export function Footer() {
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link}>
-                    <Link href="#" className="text-sm text-[#9ca3af] hover:text-[#6E97FF] transition-colors">
+                    <Link href="#" className="text-sm text-[#9ca3af] hover:text-[#DD8348] transition-colors">
                       {link}
                     </Link>
                   </li>
@@ -84,11 +84,11 @@ export function Footer() {
             <input
               type="email"
               placeholder="your@email.com"
-              className="flex-1 sm:w-56 h-10 px-3 rounded-lg bg-white/10 border border-white/15 text-sm text-white placeholder:text-[#6b7280] focus:outline-none focus:border-[#3B6FF6] transition-colors"
+              className="flex-1 sm:w-56 h-10 px-3 rounded-lg bg-white/10 border border-white/15 text-sm text-white placeholder:text-[#6b7280] focus:outline-none focus:border-[#C4622D] transition-colors"
             />
             <button
               type="submit"
-              className="h-10 px-5 rounded-lg bg-[#3B6FF6] hover:bg-[#2554D8] text-white text-sm font-bold transition-colors"
+              className="h-10 px-5 rounded-lg bg-[#C4622D] hover:bg-[#9E4D21] text-white text-sm font-bold transition-colors"
             >
               Subscribe →
             </button>

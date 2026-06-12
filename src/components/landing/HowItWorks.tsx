@@ -35,7 +35,7 @@ const steps = [
 ];
 
 const colorMap: Record<string, { bg: string; text: string }> = {
-  orange:  { bg: "bg-[#eef3ff] dark:bg-[#0e1730]",   text: "text-[#3B6FF6]" },
+  orange:  { bg: "bg-[#eef3ff] dark:bg-[#0e1730]",   text: "text-[#C4622D]" },
   amber:   { bg: "bg-amber-50 dark:bg-amber-900/20",   text: "text-amber-600 dark:text-amber-400" },
   charcoal:{ bg: "bg-[#f5f4f0] dark:bg-[#2a2824]",    text: "text-[#2D2D2D] dark:text-[#f5f4f0]" },
   green:   { bg: "bg-emerald-50 dark:bg-emerald-900/20", text: "text-emerald-600 dark:text-emerald-400" },
@@ -62,7 +62,7 @@ export function HowItWorks() {
 
         <div className="relative">
           {/* Connector */}
-          <div className="hidden lg:block absolute top-[52px] h-0.5 bg-gradient-to-r from-[#3B6FF6]/30 via-amber-400/30 to-emerald-400/30"
+          <div className="hidden lg:block absolute top-[52px] h-0.5 bg-gradient-to-r from-[#C4622D]/30 via-amber-400/30 to-emerald-400/30"
                style={{ left: "12.5%", right: "12.5%" }} />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -82,7 +82,7 @@ export function HowItWorks() {
                       {step.number}
                     </span>
                   </div>
-                  <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-[#3B6FF6] text-white text-xs font-black flex items-center justify-center shadow-md">
+                  <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-[#C4622D] text-white text-xs font-black flex items-center justify-center shadow-md">
                     {i + 1}
                   </span>
                 </div>

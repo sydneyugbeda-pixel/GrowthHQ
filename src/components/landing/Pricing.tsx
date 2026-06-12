@@ -84,7 +84,7 @@ export function Pricing() {
             <span className={cn("text-sm font-medium", !annual ? "text-[#1a1a1a] dark:text-white" : "text-[#9ca3af]")}>Monthly</span>
             <button
               onClick={() => setAnnual(!annual)}
-              className={cn("relative w-12 h-6 rounded-full transition-colors duration-200", annual ? "bg-[#3B6FF6]" : "bg-[#e8e8e4] dark:bg-[#2a2824]")}
+              className={cn("relative w-12 h-6 rounded-full transition-colors duration-200", annual ? "bg-[#C4622D]" : "bg-[#e8e8e4] dark:bg-[#2a2824]")}
             >
               <span className={cn("absolute top-1 w-4 h-4 rounded-full bg-white shadow transition-transform duration-200", annual ? "translate-x-7" : "translate-x-1")} />
             </button>
@@ -105,14 +105,14 @@ export function Pricing() {
                 className={cn(
                   "relative rounded-2xl p-6 border transition-all",
                   isPro
-                    ? "bg-gradient-to-b from-[#3B6FF6] to-[#2554D8] border-transparent text-white shadow-2xl shadow-blue-500/25 scale-[1.02]"
+                    ? "bg-gradient-to-b from-[#C4622D] to-[#9E4D21] border-transparent text-white shadow-2xl shadow-blue-500/25 scale-[1.02]"
                     : "bg-white dark:bg-[#1a1916] border-[#e8e8e4] dark:border-[#2a2824]"
                 )}
               >
                 {plan.badge && (
                   <div className={cn(
                     "absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold shadow-sm",
-                    isPro ? "bg-white text-[#3B6FF6]" : "bg-[#3B6FF6] text-white"
+                    isPro ? "bg-white text-[#C4622D]" : "bg-[#C4622D] text-white"
                   )}>
                     {plan.badge}
                   </div>
@@ -138,10 +138,10 @@ export function Pricing() {
                     size="md"
                     className={cn("w-full justify-center font-bold",
                       isPro
-                        ? "bg-white text-[#3B6FF6] hover:bg-orange-50 shadow-md"
+                        ? "bg-white text-[#C4622D] hover:bg-orange-50 shadow-md"
                         : plan.id === "elite"
                         ? "bg-[#2D2D2D] text-white hover:bg-[#1a1a1a]"
-                        : "bg-[#eef3ff] text-[#3B6FF6] hover:bg-[#fce8d5] border border-[#3B6FF6]/20"
+                        : "bg-[#eef3ff] text-[#C4622D] hover:bg-[#fce8d5] border border-[#C4622D]/20"
                     )}
                     icon={plan.id !== "free" ? <Zap className="w-4 h-4" /> : undefined}
                   >
@@ -152,7 +152,7 @@ export function Pricing() {
                 <ul className="space-y-2.5">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2.5 text-sm">
-                      <Check className={cn("w-4 h-4 shrink-0", isPro ? "text-blue-100" : "text-[#3B6FF6]")} />
+                      <Check className={cn("w-4 h-4 shrink-0", isPro ? "text-blue-100" : "text-[#C4622D]")} />
                       <span className={isPro ? "text-orange-50" : "text-[#4D4D4D] dark:text-[#d1cfc9]"}>{feature}</span>
                     </li>
                   ))}

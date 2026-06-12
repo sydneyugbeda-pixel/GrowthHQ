@@ -17,7 +17,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-[#3B6FF6] text-white hover:bg-[#2554D8] active:bg-[#1D44B8] shadow-sm shadow-blue-500/20",
+    "bg-[#C4622D] text-white hover:bg-[#9E4D21] active:bg-[#1D44B8] shadow-sm shadow-blue-500/20",
   gradient:
     "bg-[#0d1117] text-white hover:bg-[#1c2433] active:bg-black shadow-md shadow-black/15 dark:bg-white dark:text-[#0d1117] dark:hover:bg-[#e8ecf5]",
   charcoal:
@@ -27,7 +27,7 @@ const variants: Record<ButtonVariant, string> = {
   ghost:
     "text-[#41485a] hover:bg-[#f3f5fb] dark:text-[#c7ccd9] dark:hover:bg-[#1a1f2b]",
   outline:
-    "border border-[#dfe4ef] text-[#0d1117] bg-white/60 backdrop-blur hover:bg-white hover:border-[#3B6FF6] dark:border-[#2a3142] dark:text-[#f4f6fb] dark:bg-white/5 dark:hover:bg-white/10",
+    "border border-[#dfe4ef] text-[#0d1117] bg-white/60 backdrop-blur hover:bg-white hover:border-[#C4622D] dark:border-[#2a3142] dark:text-[#f4f6fb] dark:bg-white/5 dark:hover:bg-white/10",
   destructive:
     "bg-red-500 text-white hover:bg-red-600 active:bg-red-700 shadow-sm",
 };
@@ -46,7 +46,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         disabled={disabled || loading}
         className={cn(
-          "inline-flex items-center justify-center font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B6FF6] focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer select-none",
+          "inline-flex items-center justify-center font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C4622D] focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer select-none",
           variants[variant],
           sizes[size],
           className

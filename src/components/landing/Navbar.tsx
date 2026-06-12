@@ -55,7 +55,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-[#4D4D4D] dark:text-[#d1cfc9] hover:text-[#3B6FF6] dark:hover:text-[#6E97FF] transition-colors"
+                className="text-sm font-medium text-[#4D4D4D] dark:text-[#d1cfc9] hover:text-[#C4622D] dark:hover:text-[#DD8348] transition-colors"
               >
                 {link.label}
               </a>
@@ -101,7 +101,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block py-2.5 px-3 rounded-lg text-sm font-medium text-[#4D4D4D] dark:text-[#d1cfc9] hover:text-[#3B6FF6] hover:bg-[#eef3ff] dark:hover:bg-[#0e1730] transition-colors"
+                  className="block py-2.5 px-3 rounded-lg text-sm font-medium text-[#4D4D4D] dark:text-[#d1cfc9] hover:text-[#C4622D] hover:bg-[#eef3ff] dark:hover:bg-[#0e1730] transition-colors"
                 >
                   {link.label}
                 </a>

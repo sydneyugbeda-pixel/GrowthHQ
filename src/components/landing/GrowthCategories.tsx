@@ -33,11 +33,11 @@ export function GrowthCategories() {
             >
               <Link
                 href={`/auth/signup?category=${cat.id}`}
-                className="group flex flex-col items-center p-6 rounded-2xl bg-white dark:bg-[#1a1916] border border-[#e8e8e4] dark:border-[#2a2824] hover:border-[#3B6FF6]/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/8 text-center"
+                className="group flex flex-col items-center p-6 rounded-2xl bg-white dark:bg-[#1a1916] border border-[#e8e8e4] dark:border-[#2a2824] hover:border-[#C4622D]/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/8 text-center"
               >
                 <span className="text-4xl mb-3">{cat.emoji}</span>
                 <span className="font-bold text-sm text-[#1a1a1a] dark:text-white mb-1">{cat.label}</span>
-                <span className="text-xs text-[#9ca3af] group-hover:text-[#3B6FF6] transition-colors flex items-center gap-0.5 font-medium">
+                <span className="text-xs text-[#9ca3af] group-hover:text-[#C4622D] transition-colors flex items-center gap-0.5 font-medium">
                   Explore <ArrowRight className="w-3 h-3" />
                 </span>
               </Link>
@@ -53,7 +53,7 @@ export function GrowthCategories() {
           >
             <Link
               href="/auth/signup"
-              className="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-br from-[#3B6FF6] to-[#6E97FF] text-white text-center hover:-translate-y-1 transition-transform shadow-lg shadow-blue-500/20"
+              className="flex flex-col items-center justify-center p-6 rounded-2xl bg-gradient-to-br from-[#C4622D] to-[#DD8348] text-white text-center hover:-translate-y-1 transition-transform shadow-lg shadow-blue-500/20"
             >
               <span className="text-4xl mb-3">🎯</span>
               <span className="font-bold text-sm mb-1">All Categories</span>

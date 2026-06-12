@@ -68,7 +68,7 @@ export function FAQ() {
                 </span>
                 <ChevronDown
                   className={cn(
-                    "w-4 h-4 shrink-0 text-[#3B6FF6] transition-transform duration-200",
+                    "w-4 h-4 shrink-0 text-[#C4622D] transition-transform duration-200",
                     open === i && "rotate-180"
                   )}
                 />

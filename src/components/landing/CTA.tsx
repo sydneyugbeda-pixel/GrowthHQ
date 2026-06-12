@@ -20,7 +20,7 @@ export function CTA() {
           <div className="hidden md:block absolute left-8 top-12 float-slow">
             <div className="bg-white/85 dark:bg-[#11141d]/85 backdrop-blur-xl rounded-2xl p-3 border border-white/70 dark:border-white/10 shadow-lg">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#3B6FF6]" />
+                <Sparkles className="w-4 h-4 text-[#C4622D]" />
                 <span className="text-xs font-semibold text-[#0d1117] dark:text-white">Daily Journal</span>
               </div>
             </div>
@@ -48,7 +48,7 @@ export function CTA() {
             <div className="flex flex-wrap items-center justify-center gap-5 mb-10">
               {perks.map((p) => (
                 <span key={p} className="flex items-center gap-1.5 text-sm text-[#41485a] dark:text-[#c7ccd9] font-medium">
-                  <CheckCircle className="w-4 h-4 text-[#3B6FF6] shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-[#C4622D] shrink-0" />
                   {p}
                 </span>
               ))}
