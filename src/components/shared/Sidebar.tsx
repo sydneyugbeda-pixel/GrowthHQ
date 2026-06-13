@@ -56,7 +56,7 @@ export function Sidebar({ user }: SidebarProps) {
       {/* Logo */}
       <div className="flex items-center h-16 px-4 border-b border-slate-100 dark:border-slate-800 shrink-0">
         <Link href="/dashboard" className="flex items-center gap-2.5 min-w-0">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center shrink-0 shadow-md shadow-violet-500/20">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-600 to-brand-700 flex items-center justify-center shrink-0 shadow-md shadow-brand-500/20">
             <Zap className="w-4 h-4 text-white fill-white" />
           </div>
           <AnimatePresence>
@@ -67,7 +67,7 @@ export function Sidebar({ user }: SidebarProps) {
                 exit={{ opacity: 0, width: 0 }}
                 className="font-bold text-base text-slate-900 dark:text-white whitespace-nowrap overflow-hidden"
               >
-                Growth<span className="text-violet-600">HQ</span>
+                Growth<span className="text-brand-600">HQ</span>
               </motion.span>
             )}
           </AnimatePresence>
@@ -94,13 +94,13 @@ export function Sidebar({ user }: SidebarProps) {
               className={cn(
                 "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 group relative",
                 active
-                  ? "bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-300"
+                  ? "bg-brand-50 dark:bg-brand-900/20 text-brand-700 dark:text-brand-300"
                   : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/70 hover:text-slate-900 dark:hover:text-slate-200"
               )}
             >
               <span className={cn(
                 "shrink-0 transition-colors",
-                active ? "text-violet-600 dark:text-violet-400" : "text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300"
+                active ? "text-brand-600 dark:text-brand-400" : "text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300"
               )}>
                 {item.icon}
               </span>
@@ -117,14 +117,14 @@ export function Sidebar({ user }: SidebarProps) {
                 )}
               </AnimatePresence>
               {!collapsed && item.badge && (
-                <Badge variant="violet" size="sm" className="ml-auto text-[10px] px-1.5">
+                <Badge variant="brand" size="sm" className="ml-auto text-[10px] px-1.5">
                   {item.badge}
                 </Badge>
               )}
               {active && (
                 <motion.div
                   layoutId="activeNav"
-                  className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-violet-600 rounded-r-full"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-brand-600 rounded-r-full"
                 />
               )}
             </Link>
@@ -138,12 +138,12 @@ export function Sidebar({ user }: SidebarProps) {
         {!collapsed && user?.subscription_tier === "free" && (
           <Link
             href="/pricing"
-            className="flex items-center gap-2.5 px-3 py-3 rounded-xl bg-gradient-to-r from-violet-50 to-indigo-50 dark:from-violet-900/20 dark:to-indigo-900/20 border border-violet-200/60 dark:border-violet-800/40 hover:from-violet-100 hover:to-indigo-100 dark:hover:from-violet-900/30 dark:hover:to-indigo-900/30 transition-all"
+            className="flex items-center gap-2.5 px-3 py-3 rounded-xl bg-gradient-to-r from-brand-50 to-brand-100 dark:from-brand-900/20 dark:to-brand-900/20 border border-brand-200/60 dark:border-brand-800/40 hover:from-brand-100 hover:to-brand-200 dark:hover:from-brand-900/30 dark:hover:to-brand-900/30 transition-all"
           >
-            <Crown className="w-4 h-4 text-violet-600 shrink-0" />
+            <Crown className="w-4 h-4 text-brand-600 shrink-0" />
             <div className="min-w-0">
-              <p className="text-xs font-semibold text-violet-700 dark:text-violet-300">Upgrade to Pro</p>
-              <p className="text-[10px] text-violet-500 dark:text-violet-400 truncate">Unlock full AI coaching</p>
+              <p className="text-xs font-semibold text-brand-700 dark:text-brand-300">Upgrade to Pro</p>
+              <p className="text-[10px] text-brand-500 dark:text-brand-400 truncate">Unlock full AI coaching</p>
             </div>
           </Link>
         )}

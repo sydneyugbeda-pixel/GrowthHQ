@@ -28,7 +28,7 @@ export const ASSESSMENTS: AssessmentDef[] = [
     title: "Communication Mastery",
     description: "Evaluate your verbal, written, and interpersonal communication effectiveness",
     emoji: "💬",
-    color: "violet",
+    color: "blue",
     duration: "8 min",
     questions: [
       { id: "c1", text: "I clearly articulate my thoughts and ideas in conversations.", options: SCALE_OPTIONS },
@@ -48,7 +48,7 @@ export const ASSESSMENTS: AssessmentDef[] = [
     title: "Leadership Intelligence",
     description: "Measure your capacity to inspire, influence, and lead others toward shared goals",
     emoji: "🎯",
-    color: "indigo",
+    color: "red",
     duration: "10 min",
     questions: [
       { id: "l1", text: "I inspire others to reach their full potential.", options: SCALE_OPTIONS },

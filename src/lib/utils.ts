@@ -53,8 +53,8 @@ export function xpProgress(xp: number) {
 }
 
 export const GROWTH_CATEGORIES = [
-  { id: "communication", label: "Communication", emoji: "💬", color: "#6366f1" },
-  { id: "leadership", label: "Leadership", emoji: "🎯", color: "#8b5cf6" },
+  { id: "communication", label: "Communication", emoji: "💬", color: "#3b82f6" },
+  { id: "leadership", label: "Leadership", emoji: "🎯", color: "#ef4444" },
   { id: "sales", label: "Sales", emoji: "📈", color: "#06b6d4" },
   { id: "confidence", label: "Confidence", emoji: "⚡", color: "#f59e0b" },
   { id: "productivity", label: "Productivity", emoji: "🚀", color: "#10b981" },

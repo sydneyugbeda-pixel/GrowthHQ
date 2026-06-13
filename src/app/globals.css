@@ -47,6 +47,19 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Brand terracotta scale (from logo #C4622D) */
+  --color-brand-50: #fdf4ee;
+  --color-brand-100: #fae6da;
+  --color-brand-200: #f2c9ae;
+  --color-brand-300: #e8a87e;
+  --color-brand-400: #dc8650;
+  --color-brand-500: #d06f38;
+  --color-brand-600: #c4622d;
+  --color-brand-700: #a24e23;
+  --color-brand-800: #813e1d;
+  --color-brand-900: #69341b;
+  --color-brand-950: #3a1b0d;
 }
 
 * { box-sizing: border-box; }

@@ -39,7 +39,7 @@ export function StatCard({
         <div className="flex items-start justify-between mb-3">
           <p className="text-sm font-medium text-slate-500 dark:text-slate-400">{title}</p>
           {icon && (
-            <div className="p-2 rounded-xl bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400">
+            <div className="p-2 rounded-xl bg-brand-50 dark:bg-brand-900/20 text-brand-600 dark:text-brand-400">
               {icon}
             </div>
           )}

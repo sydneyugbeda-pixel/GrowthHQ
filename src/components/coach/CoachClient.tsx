@@ -168,7 +168,7 @@ export function CoachClient({ user, growthProfile, conversations: initialConvers
                     className={cn(
                       "w-full text-left px-3 py-2.5 rounded-xl text-sm transition-colors",
                       conversationId === conv.id
-                        ? "bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-300"
+                        ? "bg-brand-50 dark:bg-brand-900/20 text-brand-700 dark:text-brand-300"
                         : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50"
                     )}
                   >
@@ -200,7 +200,7 @@ export function CoachClient({ user, growthProfile, conversations: initialConvers
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center gap-4"
                 >
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shadow-2xl shadow-violet-500/25 pulse-ring">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-2xl shadow-brand-500/25 pulse-ring">
                     <Zap className="w-10 h-10 text-white fill-white" />
                   </div>
                   <div>
@@ -225,10 +225,10 @@ export function CoachClient({ user, growthProfile, conversations: initialConvers
                     <button
                       key={prompt.text}
                       onClick={() => sendMessage(prompt.text)}
-                      className="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-left hover:border-violet-300 dark:hover:border-violet-700 hover:bg-violet-50/50 dark:hover:bg-violet-900/10 transition-all group text-sm text-slate-700 dark:text-slate-300"
+                      className="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-left hover:border-brand-300 dark:hover:border-brand-700 hover:bg-brand-50/50 dark:hover:bg-brand-900/10 transition-all group text-sm text-slate-700 dark:text-slate-300"
                     >
                       <span className="text-xl shrink-0">{prompt.emoji}</span>
-                      <span className="group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                      <span className="group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                         {prompt.text}
                       </span>
                     </button>
@@ -246,7 +246,7 @@ export function CoachClient({ user, growthProfile, conversations: initialConvers
                     className={cn("flex gap-3", msg.role === "user" ? "justify-end" : "justify-start")}
                   >
                     {msg.role === "assistant" && (
-                      <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shrink-0 mt-0.5 shadow-md shadow-violet-500/20">
+                      <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shrink-0 mt-0.5 shadow-md shadow-brand-500/20">
                         <Zap className="w-4 h-4 text-white fill-white" />
                       </div>
                     )}
@@ -254,7 +254,7 @@ export function CoachClient({ user, growthProfile, conversations: initialConvers
                       <div className={cn(
                         "px-4 py-3 rounded-2xl text-sm leading-relaxed",
                         msg.role === "user"
-                          ? "bg-violet-600 text-white rounded-br-sm"
+                          ? "bg-brand-600 text-white rounded-br-sm"
                           : "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 rounded-tl-sm shadow-sm"
                       )}>
                         <p className="whitespace-pre-wrap">{msg.content}</p>
@@ -280,13 +280,13 @@ export function CoachClient({ user, growthProfile, conversations: initialConvers
                     animate={{ opacity: 1, y: 0 }}
                     className="flex gap-3"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shrink-0">
                       <Zap className="w-4 h-4 text-white fill-white" />
                     </div>
                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm">
                       <div className="flex items-center gap-1">
                         {[0, 1, 2].map((i) => (
-                          <span key={i} className={`w-2 h-2 rounded-full bg-violet-400 typing-dot`} />
+                          <span key={i} className={`w-2 h-2 rounded-full bg-brand-400 typing-dot`} />
                         ))}
                       </div>
                     </div>
@@ -300,7 +300,7 @@ export function CoachClient({ user, growthProfile, conversations: initialConvers
           {/* Input area */}
           <div className="p-4 sm:p-5 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
             <div className="max-w-3xl mx-auto">
-              <div className="relative flex items-end gap-2 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-3 focus-within:border-violet-400 dark:focus-within:border-violet-600 transition-colors">
+              <div className="relative flex items-end gap-2 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-3 focus-within:border-brand-400 dark:focus-within:border-brand-600 transition-colors">
                 <Textarea
                   ref={inputRef}
                   value={input}
@@ -314,7 +314,7 @@ export function CoachClient({ user, growthProfile, conversations: initialConvers
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="text-slate-400 hover:text-violet-600"
+                    className="text-slate-400 hover:text-brand-600"
                     icon={<Sparkles className="w-4 h-4" />}
                     title="AI suggestions"
                   />

@@ -20,7 +20,7 @@ export function Avatar({ src, name, size = "md", className, ring }: AvatarProps)
   return (
     <div
       className={cn(
-        "relative rounded-full overflow-hidden shrink-0 bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center font-semibold text-white",
+        "relative rounded-full overflow-hidden shrink-0 bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center font-semibold text-white",
         sizes[size],
         ring && "ring-2 ring-white dark:ring-slate-900",
         className

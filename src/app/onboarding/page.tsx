@@ -155,11 +155,11 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-violet-50/30 dark:from-slate-950 dark:to-violet-950/20 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-brand-50/30 dark:from-slate-950 dark:to-brand-950/20 flex flex-col">
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-sm">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-600 to-brand-700 flex items-center justify-center">
             <Zap className="w-4 h-4 text-white fill-white" />
           </div>
           <span className="font-bold text-slate-900 dark:text-white">GrowthHQ</span>
@@ -287,7 +287,7 @@ export default function OnboardingPage() {
                 <div className="space-y-4">
                   {generating ? (
                     <div className="flex flex-col items-center py-12 gap-4">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center shadow-xl shadow-violet-500/30">
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-600 to-brand-700 flex items-center justify-center shadow-xl shadow-brand-500/30">
                         <Loader2 className="w-7 h-7 text-white animate-spin" />
                       </div>
                       <p className="text-slate-600 dark:text-slate-400 font-medium">Building your personalized growth roadmap...</p>
@@ -297,19 +297,19 @@ export default function OnboardingPage() {
                     <>
                       <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
                         <div className="flex items-center gap-2 mb-3">
-                          <Sparkles className="w-4 h-4 text-violet-500 fill-violet-500" />
+                          <Sparkles className="w-4 h-4 text-brand-500 fill-brand-500" />
                           <h3 className="font-semibold text-slate-900 dark:text-white">Your Growth Roadmap</h3>
                         </div>
                         <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-line">
                           {roadmap.roadmap}
                         </p>
                       </div>
-                      <div className="bg-violet-50 dark:bg-violet-900/20 rounded-2xl border border-violet-200 dark:border-violet-800/50 p-5">
+                      <div className="bg-brand-50 dark:bg-brand-900/20 rounded-2xl border border-brand-200 dark:border-brand-800/50 p-5">
                         <div className="flex items-center gap-2 mb-2">
-                          <Zap className="w-4 h-4 text-violet-600 fill-violet-500" />
-                          <h3 className="font-semibold text-violet-800 dark:text-violet-300">This Week&apos;s Focus</h3>
+                          <Zap className="w-4 h-4 text-brand-600 fill-brand-500" />
+                          <h3 className="font-semibold text-brand-800 dark:text-brand-300">This Week&apos;s Focus</h3>
                         </div>
-                        <p className="text-sm text-violet-700 dark:text-violet-300 leading-relaxed">
+                        <p className="text-sm text-brand-700 dark:text-brand-300 leading-relaxed">
                           {roadmap.weeklyFocus}
                         </p>
                       </div>
@@ -371,12 +371,12 @@ function SelectCard({
         "relative flex gap-3 rounded-xl border-2 p-4 text-left transition-all duration-150 hover:-translate-y-0.5",
         horizontal ? "flex-row items-center" : "flex-col items-center text-center",
         selected
-          ? "border-violet-500 bg-violet-50 dark:bg-violet-900/20"
-          : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-violet-300 dark:hover:border-violet-700"
+          ? "border-brand-500 bg-brand-50 dark:bg-brand-900/20"
+          : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-brand-300 dark:hover:border-brand-700"
       )}
     >
       {multi && selected && (
-        <span className="absolute top-2 right-2 w-5 h-5 rounded-full bg-violet-600 flex items-center justify-center">
+        <span className="absolute top-2 right-2 w-5 h-5 rounded-full bg-brand-600 flex items-center justify-center">
           <Check className="w-3 h-3 text-white" />
         </span>
       )}
@@ -384,7 +384,7 @@ function SelectCard({
       <div>
         <span className={cn(
           "block font-medium text-sm",
-          selected ? "text-violet-700 dark:text-violet-300" : "text-slate-800 dark:text-slate-200"
+          selected ? "text-brand-700 dark:text-brand-300" : "text-slate-800 dark:text-slate-200"
         )}>
           {label}
         </span>
@@ -403,11 +403,11 @@ function ChipButton({ label, selected, onClick }: { label: string; selected: boo
       className={cn(
         "flex items-center gap-2 w-full px-4 py-2.5 rounded-xl border-2 text-sm font-medium text-left transition-all duration-150",
         selected
-          ? "border-violet-500 bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-300"
-          : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-violet-300 dark:hover:border-violet-700"
+          ? "border-brand-500 bg-brand-50 dark:bg-brand-900/20 text-brand-700 dark:text-brand-300"
+          : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-brand-300 dark:hover:border-brand-700"
       )}
     >
-      {selected && <Check className="w-4 h-4 shrink-0 text-violet-600" />}
+      {selected && <Check className="w-4 h-4 shrink-0 text-brand-600" />}
       <span>{label}</span>
     </button>
   );

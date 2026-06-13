@@ -20,7 +20,7 @@ import {
 import { cn } from "@/lib/utils";
 
 const TABS = ["Overview", "Users", "Assessments", "Content", "Settings"];
-const COLORS = ["#7c3aed", "#4f46e5", "#06b6d4", "#10b981"];
+const COLORS = ["#c4622d", "#3b82f6", "#06b6d4", "#10b981"];
 
 interface AdminDashboardProps {
   users: Record<string, unknown>[];
@@ -63,7 +63,7 @@ export function AdminDashboard({ users, stats, assessments }: AdminDashboardProp
       <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-600 to-brand-700 flex items-center justify-center">
               <Zap className="w-4 h-4 text-white fill-white" />
             </div>
             <span className="font-bold text-slate-900 dark:text-white">GrowthHQ</span>
@@ -84,7 +84,7 @@ export function AdminDashboard({ users, stats, assessments }: AdminDashboardProp
               className={cn(
                 "px-4 py-3 text-sm font-medium border-b-2 transition-colors",
                 activeTab === tab
-                  ? "border-violet-600 text-violet-700 dark:text-violet-400"
+                  ? "border-brand-600 text-brand-700 dark:text-brand-400"
                   : "border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
               )}
             >
@@ -145,7 +145,7 @@ export function AdminDashboard({ users, stats, assessments }: AdminDashboardProp
                     <XAxis dataKey="name" tick={{ fontSize: 10, fill: "#94a3b8" }} axisLine={false} tickLine={false} />
                     <YAxis tick={{ fontSize: 10, fill: "#94a3b8" }} axisLine={false} tickLine={false} />
                     <Tooltip contentStyle={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "12px", fontSize: "12px" }} />
-                    <Bar dataKey="count" fill="#7c3aed" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="count" fill="#c4622d" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </Card>
@@ -201,7 +201,7 @@ export function AdminDashboard({ users, stats, assessments }: AdminDashboardProp
                           <Badge
                             variant={
                               user.subscription_tier === "elite" ? "yellow" :
-                              user.subscription_tier === "pro" ? "violet" : "default"
+                              user.subscription_tier === "pro" ? "brand" : "default"
                             }
                           >
                             {(user.subscription_tier as string) || "free"}
@@ -218,7 +218,7 @@ export function AdminDashboard({ users, stats, assessments }: AdminDashboardProp
                         </td>
                         <td className="px-4 py-3">
                           <div className="flex items-center gap-1.5">
-                            <button className="p-1.5 rounded-lg text-slate-400 hover:text-violet-600 hover:bg-violet-50 dark:hover:bg-violet-900/20 transition-colors">
+                            <button className="p-1.5 rounded-lg text-slate-400 hover:text-brand-600 hover:bg-brand-50 dark:hover:bg-brand-900/20 transition-colors">
                               <Mail className="w-3.5 h-3.5" />
                             </button>
                             <button className="p-1.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
@@ -276,7 +276,7 @@ export function AdminDashboard({ users, stats, assessments }: AdminDashboardProp
                   ].map((setting) => (
                     <button
                       key={setting}
-                      className="flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-violet-300 dark:hover:border-violet-700 hover:bg-violet-50/50 dark:hover:bg-violet-900/10 transition-all"
+                      className="flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-brand-300 dark:hover:border-brand-700 hover:bg-brand-50/50 dark:hover:bg-brand-900/10 transition-all"
                     >
                       <span className="font-medium text-slate-700 dark:text-slate-300">{setting}</span>
                       <ChevronDown className="w-4 h-4 rotate-[-90deg] text-slate-400" />

@@ -101,7 +101,7 @@ export default function CommunityPage() {
                 <div className="flex items-center justify-between">
                   <div className="flex gap-2">
                     {["Win 🏆", "Tip 💡", "Challenge 🤔"].map((tag) => (
-                      <button key={tag} className="text-xs px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-violet-100 dark:hover:bg-violet-900/20 transition-colors">
+                      <button key={tag} className="text-xs px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-brand-100 dark:hover:bg-brand-900/20 transition-colors">
                         {tag}
                       </button>
                     ))}
@@ -121,7 +121,7 @@ export default function CommunityPage() {
                     className={cn(
                       "px-3 py-1.5 rounded-full text-xs font-medium transition-all",
                       activeCategory === cat
-                        ? "bg-violet-600 text-white"
+                        ? "bg-brand-600 text-white"
                         : "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400"
                     )}
                   >
@@ -155,7 +155,7 @@ export default function CommunityPage() {
                           <p className="text-xs text-slate-400">{post.role} · {post.time}</p>
                         </div>
                       </div>
-                      <Badge variant={post.category === "Wins" ? "green" : post.category === "Tips" ? "violet" : "default"}>
+                      <Badge variant={post.category === "Wins" ? "green" : post.category === "Tips" ? "brand" : "default"}>
                         {post.category}
                       </Badge>
                     </div>
@@ -177,7 +177,7 @@ export default function CommunityPage() {
                         <Heart className={cn("w-4 h-4", likedPosts.includes(post.id) && "fill-red-500")} />
                         {post.likes}
                       </button>
-                      <button className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors font-medium">
+                      <button className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors font-medium">
                         <MessageCircle className="w-4 h-4" />
                         {post.comments}
                       </button>
@@ -205,7 +205,7 @@ export default function CommunityPage() {
                       key={user.name}
                       className={cn(
                         "flex items-center gap-3 p-2.5 rounded-xl",
-                        user.isYou && "bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800/40"
+                        user.isYou && "bg-brand-50 dark:bg-brand-900/20 border border-brand-200 dark:border-brand-800/40"
                       )}
                     >
                       <span className={cn(
@@ -232,7 +232,7 @@ export default function CommunityPage() {
               {/* Active challenges */}
               <Card>
                 <div className="flex items-center gap-2 mb-4">
-                  <TrendingUp className="w-4 h-4 text-violet-600" />
+                  <TrendingUp className="w-4 h-4 text-brand-600" />
                   <h3 className="font-semibold text-slate-900 dark:text-white">Active Challenges</h3>
                 </div>
                 <div className="space-y-3">

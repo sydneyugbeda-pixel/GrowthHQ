@@ -50,8 +50,8 @@ export function Progress({
           className={cn(
             "h-full rounded-full transition-all duration-700 ease-out",
             gradient
-              ? "bg-gradient-to-r from-violet-500 to-cyan-500"
-              : "bg-violet-500",
+              ? "bg-gradient-to-r from-brand-500 to-cyan-500"
+              : "bg-brand-500",
             animated && "animate-pulse",
             barClassName
           )}

@@ -87,7 +87,7 @@ export default function TrackingPage() {
                 className={cn(
                   "px-4 py-3.5 text-sm font-medium border-b-2 transition-colors",
                   activeTab === tab
-                    ? "border-violet-600 text-violet-700 dark:text-violet-400"
+                    ? "border-brand-600 text-brand-700 dark:text-brand-400"
                     : "border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
                 )}
               >
@@ -131,7 +131,7 @@ export default function TrackingPage() {
                     <XAxis dataKey="day" tick={{ fontSize: 11, fill: "#94a3b8" }} axisLine={false} tickLine={false} />
                     <YAxis tick={{ fontSize: 11, fill: "#94a3b8" }} axisLine={false} tickLine={false} domain={[0, 10]} />
                     <Tooltip contentStyle={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "12px", fontSize: "12px" }} />
-                    <Line type="monotone" dataKey="mood" stroke="#7c3aed" strokeWidth={2.5} dot={{ fill: "#7c3aed", r: 4 }} name="Mood" />
+                    <Line type="monotone" dataKey="mood" stroke="#c4622d" strokeWidth={2.5} dot={{ fill: "#c4622d", r: 4 }} name="Mood" />
                     <Line type="monotone" dataKey="confidence" stroke="#06b6d4" strokeWidth={2.5} dot={{ fill: "#06b6d4", r: 4 }} name="Confidence" />
                   </LineChart>
                 </ResponsiveContainer>
@@ -141,13 +141,13 @@ export default function TrackingPage() {
               <Card>
                 <CardHeader>
                   <CardTitle>Weekly Review</CardTitle>
-                  <Badge variant="violet">Week 12</Badge>
+                  <Badge variant="brand">Week 12</Badge>
                 </CardHeader>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {[
                     { label: "Wins This Week", items: ["Completed communication assessment", "7-day streak maintained", "Finished 2 learning modules"], color: "emerald" },
                     { label: "Challenges", items: ["Struggled with deep focus sessions", "Missed 2 habit days"], color: "amber" },
-                    { label: "Focus Next Week", items: ["Start leadership course", "Daily AI coaching session", "Retake sales assessment"], color: "violet" },
+                    { label: "Focus Next Week", items: ["Start leadership course", "Daily AI coaching session", "Retake sales assessment"], color: "brand" },
                   ].map((section) => (
                     <div key={section.label}>
                       <h4 className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-2">{section.label}</h4>
@@ -195,7 +195,7 @@ export default function TrackingPage() {
                       "flex items-center gap-4 p-4 rounded-2xl border-2 transition-all duration-200 cursor-pointer",
                       habit.completed
                         ? "border-emerald-200 dark:border-emerald-800/50 bg-emerald-50/50 dark:bg-emerald-900/10"
-                        : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-violet-300 dark:hover:border-violet-700"
+                        : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-brand-300 dark:hover:border-brand-700"
                     )}
                     onClick={() => toggleHabit(habit.id)}
                   >
@@ -241,7 +241,7 @@ export default function TrackingPage() {
                         onClick={() => setMood(n)}
                         className={cn(
                           "w-8 h-8 rounded-full text-xs font-bold transition-all",
-                          mood === n ? "bg-violet-600 text-white scale-110" : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-violet-100"
+                          mood === n ? "bg-brand-600 text-white scale-110" : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-brand-100"
                         )}
                       >
                         {n}
@@ -301,12 +301,12 @@ export default function TrackingPage() {
                     <Card key={i}>
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-xs text-slate-500">{entry.date}</span>
-                        <Badge variant="violet">Mood: {entry.mood}/10</Badge>
+                        <Badge variant="brand">Mood: {entry.mood}/10</Badge>
                       </div>
                       <p className="text-sm text-slate-700 dark:text-slate-300 mb-3">{entry.content}</p>
-                      <div className="bg-violet-50 dark:bg-violet-900/15 rounded-xl p-3 border border-violet-100 dark:border-violet-800/30">
-                        <p className="text-xs font-semibold text-violet-700 dark:text-violet-300 mb-1">🧠 AI Reflection</p>
-                        <p className="text-xs text-violet-600 dark:text-violet-400 leading-relaxed">{entry.ai_reflection}</p>
+                      <div className="bg-brand-50 dark:bg-brand-900/15 rounded-xl p-3 border border-brand-100 dark:border-brand-800/30">
+                        <p className="text-xs font-semibold text-brand-700 dark:text-brand-300 mb-1">🧠 AI Reflection</p>
+                        <p className="text-xs text-brand-600 dark:text-brand-400 leading-relaxed">{entry.ai_reflection}</p>
                       </div>
                     </Card>
                   ))}

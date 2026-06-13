@@ -60,7 +60,7 @@ export default function SignupPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left panel */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-violet-900 via-indigo-900 to-slate-900 relative overflow-hidden flex-col items-center justify-center p-12">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-brand-900 via-brand-900 to-slate-900 relative overflow-hidden flex-col items-center justify-center p-12">
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         <div className="relative z-10 max-w-md text-white">
           <Link href="/" className="flex items-center gap-2.5 mb-12">
@@ -72,7 +72,7 @@ export default function SignupPage() {
           <h1 className="text-4xl font-bold mb-4 leading-tight">
             Begin your<br />elite growth journey.
           </h1>
-          <p className="text-violet-200 text-lg mb-10">
+          <p className="text-brand-200 text-lg mb-10">
             Join 10,000+ leaders who are leveling up with AI-powered coaching.
           </p>
           <div className="grid grid-cols-2 gap-4">
@@ -84,7 +84,7 @@ export default function SignupPage() {
             ].map((stat) => (
               <div key={stat.label} className="bg-white/10 backdrop-blur rounded-xl p-4">
                 <div className="text-2xl font-bold text-white">{stat.value}</div>
-                <div className="text-xs text-violet-300 mt-0.5">{stat.label}</div>
+                <div className="text-xs text-brand-300 mt-0.5">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -98,7 +98,7 @@ export default function SignupPage() {
         >
           <div className="lg:hidden mb-8">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-600 to-brand-700 flex items-center justify-center">
                 <Zap className="w-4 h-4 text-white fill-white" />
               </div>
               <span className="font-bold text-lg text-slate-900 dark:text-white">GrowthHQ</span>
@@ -108,7 +108,7 @@ export default function SignupPage() {
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">Create your account</h2>
           <p className="text-slate-500 dark:text-slate-400 mb-8">
             Already have an account?{" "}
-            <Link href="/auth/login" className="text-violet-600 dark:text-violet-400 font-medium hover:underline">
+            <Link href="/auth/login" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
               Sign in
             </Link>
           </p>

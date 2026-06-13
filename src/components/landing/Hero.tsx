@@ -197,7 +197,7 @@ function DashboardPreview() {
               { label: "Growth Score", value: "847", icon: <Zap className="w-4 h-4 text-[#C4622D]" /> },
               { label: "Day Streak",   value: "23",  icon: <Flame className="w-4 h-4 text-[#f97316]" /> },
               { label: "Skills",       value: "12",  icon: <TrendingUp className="w-4 h-4 text-[#C4622D]" /> },
-              { label: "XP Points",    value: "4,230", icon: <Sparkles className="w-4 h-4 text-[#8b5cf6]" /> },
+              { label: "XP Points",    value: "4,230", icon: <Sparkles className="w-4 h-4 text-[#c4622d]" /> },
             ].map((stat) => (
               <div key={stat.label} className="bg-white dark:bg-[#11141d] rounded-xl p-3 border border-[#ebeef5] dark:border-[#1e2330]">
                 <div className="mb-1">{stat.icon}</div>

@@ -14,8 +14,8 @@ import { cn } from "@/lib/utils";
 import { ChevronRight, Clock, BarChart3, Lock } from "lucide-react";
 
 const colorMap: Record<string, string> = {
-  violet: "bg-violet-100 dark:bg-violet-900/20 text-violet-600",
-  indigo: "bg-indigo-100 dark:bg-indigo-900/20 text-indigo-600",
+  blue: "bg-blue-100 dark:bg-blue-900/20 text-blue-600",
+  red: "bg-red-100 dark:bg-red-900/20 text-red-600",
   cyan: "bg-cyan-100 dark:bg-cyan-900/20 text-cyan-600",
   yellow: "bg-amber-100 dark:bg-amber-900/20 text-amber-600",
   green: "bg-emerald-100 dark:bg-emerald-900/20 text-emerald-600",
@@ -62,7 +62,7 @@ export function AssessmentsClient({ assessments, userId }: AssessmentsClientProp
           {assessments.length > 0 && (
             <Card>
               <div className="flex items-center gap-3 mb-5">
-                <BarChart3 className="w-5 h-5 text-violet-600" />
+                <BarChart3 className="w-5 h-5 text-brand-600" />
                 <h2 className="font-semibold text-slate-900 dark:text-white">Your Assessment Progress</h2>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
@@ -74,7 +74,7 @@ export function AssessmentsClient({ assessments, userId }: AssessmentsClientProp
                         <svg className="w-12 h-12 -rotate-90" viewBox="0 0 36 36">
                           <circle cx="18" cy="18" r="14" fill="none" stroke="#e2e8f0" strokeWidth="3" />
                           <circle
-                            cx="18" cy="18" r="14" fill="none" stroke="#7c3aed" strokeWidth="3"
+                            cx="18" cy="18" r="14" fill="none" stroke="#c4622d" strokeWidth="3"
                             strokeDasharray={`${(score || 0) * 0.88} 88`} strokeLinecap="round"
                           />
                         </svg>

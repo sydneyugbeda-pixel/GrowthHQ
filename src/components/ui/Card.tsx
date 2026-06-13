@@ -23,7 +23,7 @@ export function Card({
         "rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900",
         hover && "card-hover cursor-pointer",
         glass && "glass",
-        glow && "ring-1 ring-violet-500/20 shadow-lg shadow-violet-500/10",
+        glow && "ring-1 ring-brand-500/20 shadow-lg shadow-brand-500/10",
         paddings[padding],
         className
       )}

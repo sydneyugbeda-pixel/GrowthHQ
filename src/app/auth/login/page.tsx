@@ -48,7 +48,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left panel */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-violet-900 via-indigo-900 to-slate-900 relative overflow-hidden flex-col items-center justify-center p-12">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-brand-900 via-brand-900 to-slate-900 relative overflow-hidden flex-col items-center justify-center p-12">
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         <div className="relative z-10 max-w-md text-white">
           <Link href="/" className="flex items-center gap-2.5 mb-12">
@@ -60,7 +60,7 @@ export default function LoginPage() {
           <h1 className="text-4xl font-bold mb-4 leading-tight">
             Welcome back,<br />growth seeker.
           </h1>
-          <p className="text-violet-200 text-lg mb-10">
+          <p className="text-brand-200 text-lg mb-10">
             Your AI coach, progress, and growth journey are waiting for you.
           </p>
           {[
@@ -70,7 +70,7 @@ export default function LoginPage() {
           ].map((item) => (
             <div key={item.text} className="flex items-center gap-3 mb-4">
               <span className="text-2xl">{item.emoji}</span>
-              <span className="text-violet-200">{item.text}</span>
+              <span className="text-brand-200">{item.text}</span>
             </div>
           ))}
         </div>
@@ -84,7 +84,7 @@ export default function LoginPage() {
         >
           <div className="lg:hidden mb-8">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-600 to-brand-700 flex items-center justify-center">
                 <Zap className="w-4 h-4 text-white fill-white" />
               </div>
               <span className="font-bold text-lg text-slate-900 dark:text-white">GrowthHQ</span>
@@ -94,7 +94,7 @@ export default function LoginPage() {
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">Sign in</h2>
           <p className="text-slate-500 dark:text-slate-400 mb-8">
             New to Growth HQ?{" "}
-            <Link href="/auth/signup" className="text-violet-600 dark:text-violet-400 font-medium hover:underline">
+            <Link href="/auth/signup" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
               Create an account
             </Link>
           </p>
@@ -152,7 +152,7 @@ export default function LoginPage() {
               required
             />
             <div className="flex justify-end">
-              <Link href="/auth/forgot-password" className="text-xs text-violet-600 dark:text-violet-400 hover:underline">
+              <Link href="/auth/forgot-password" className="text-xs text-brand-600 dark:text-brand-400 hover:underline">
                 Forgot password?
               </Link>
             </div>

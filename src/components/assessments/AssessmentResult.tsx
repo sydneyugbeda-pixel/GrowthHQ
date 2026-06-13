@@ -18,7 +18,7 @@ interface AssessmentResultProps {
 }
 
 function getScoreLabel(score: number) {
-  if (score >= 85) return { label: "Elite", color: "text-violet-600", bg: "bg-violet-50 dark:bg-violet-900/20" };
+  if (score >= 85) return { label: "Elite", color: "text-brand-600", bg: "bg-brand-50 dark:bg-brand-900/20" };
   if (score >= 70) return { label: "Advanced", color: "text-blue-600", bg: "bg-blue-50 dark:bg-blue-900/20" };
   if (score >= 55) return { label: "Developing", color: "text-emerald-600", bg: "bg-emerald-50 dark:bg-emerald-900/20" };
   if (score >= 40) return { label: "Foundational", color: "text-amber-600", bg: "bg-amber-50 dark:bg-amber-900/20" };
@@ -38,7 +38,7 @@ export function AssessmentResult({ result, onDone }: AssessmentResultProps) {
           animate={{ opacity: 1, scale: 1 }}
           className="text-center py-8"
         >
-          <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 shadow-2xl shadow-violet-500/25 mb-4 relative">
+          <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 shadow-2xl shadow-brand-500/25 mb-4 relative">
             <Trophy className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-2">
@@ -75,7 +75,7 @@ export function AssessmentResult({ result, onDone }: AssessmentResultProps) {
         {/* AI Insights */}
         <Card>
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
               <span className="text-white text-xs">✦</span>
             </div>
             <h3 className="font-semibold text-slate-900 dark:text-white">AI Analysis</h3>
@@ -99,7 +99,7 @@ export function AssessmentResult({ result, onDone }: AssessmentResultProps) {
                 transition={{ delay: i * 0.1 }}
                 className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800"
               >
-                <div className="w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center text-xs font-bold text-violet-600 dark:text-violet-400 shrink-0 mt-0.5">
+                <div className="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center text-xs font-bold text-brand-600 dark:text-brand-400 shrink-0 mt-0.5">
                   {i + 1}
                 </div>
                 <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">{rec}</p>

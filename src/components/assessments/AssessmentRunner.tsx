@@ -100,7 +100,7 @@ export function AssessmentRunner({ assessment, userId, onComplete, onBack }: Ass
               className="space-y-8"
             >
               <div>
-                <p className="text-xs font-medium text-violet-600 dark:text-violet-400 uppercase tracking-wider mb-3">
+                <p className="text-xs font-medium text-brand-600 dark:text-brand-400 uppercase tracking-wider mb-3">
                   Question {currentQ + 1}
                 </p>
                 <h2 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white leading-relaxed">
@@ -118,14 +118,14 @@ export function AssessmentRunner({ assessment, userId, onComplete, onBack }: Ass
                     className={cn(
                       "w-full flex items-center gap-4 px-5 py-4 rounded-2xl border-2 text-left transition-all duration-150 hover:-translate-y-0.5",
                       currentAnswer === option.value
-                        ? "border-violet-500 bg-violet-50 dark:bg-violet-900/20"
-                        : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-violet-300 dark:hover:border-violet-700"
+                        ? "border-brand-500 bg-brand-50 dark:bg-brand-900/20"
+                        : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-brand-300 dark:hover:border-brand-700"
                     )}
                   >
                     <div className={cn(
                       "w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-bold shrink-0",
                       currentAnswer === option.value
-                        ? "border-violet-500 bg-violet-500 text-white"
+                        ? "border-brand-500 bg-brand-500 text-white"
                         : "border-slate-300 dark:border-slate-600 text-slate-500"
                     )}>
                       {option.value}
@@ -133,7 +133,7 @@ export function AssessmentRunner({ assessment, userId, onComplete, onBack }: Ass
                     <span className={cn(
                       "font-medium text-sm",
                       currentAnswer === option.value
-                        ? "text-violet-700 dark:text-violet-300"
+                        ? "text-brand-700 dark:text-brand-300"
                         : "text-slate-700 dark:text-slate-300"
                     )}>
                       {option.label}

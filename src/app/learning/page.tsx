@@ -92,7 +92,7 @@ export default function LearningPage() {
   const levelColor: Record<string, string> = {
     Beginner: "green",
     Intermediate: "yellow",
-    Advanced: "violet",
+    Advanced: "brand",
   };
 
   return (
@@ -134,8 +134,8 @@ export default function LearningPage() {
                 className={cn(
                   "px-4 py-1.5 rounded-full text-sm font-medium transition-all",
                   activeCategory === cat
-                    ? "bg-violet-600 text-white"
-                    : "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-violet-300 dark:hover:border-violet-700"
+                    ? "bg-brand-600 text-white"
+                    : "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-brand-300 dark:hover:border-brand-700"
                 )}
               >
                 {cat}
@@ -148,7 +148,7 @@ export default function LearningPage() {
             <div>
               <h2 className="font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                 <span>Continue Learning</span>
-                <Badge variant="violet">{COURSES.filter((c) => c.progress > 0).length} active</Badge>
+                <Badge variant="brand">{COURSES.filter((c) => c.progress > 0).length} active</Badge>
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
                 {COURSES.filter((c) => c.progress > 0).map((course, i) => (
@@ -183,11 +183,11 @@ export default function LearningPage() {
                       <span className="text-3xl">{t.emoji}</span>
                       <FileText className="w-4 h-4 text-slate-400" />
                     </div>
-                    <h3 className="font-medium text-slate-800 dark:text-slate-200 text-sm mb-1 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                    <h3 className="font-medium text-slate-800 dark:text-slate-200 text-sm mb-1 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                       {t.title}
                     </h3>
                     <p className="text-xs text-slate-400">{t.category}</p>
-                    <Button variant="ghost" size="sm" className="mt-3 w-full justify-center text-violet-600 hover:bg-violet-50">
+                    <Button variant="ghost" size="sm" className="mt-3 w-full justify-center text-brand-600 hover:bg-brand-50">
                       Download Free
                     </Button>
                   </Card>
@@ -207,9 +207,9 @@ function CourseCard({ course, levelColor, compact }: { course: typeof COURSES[0]
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      <Card className="group cursor-pointer hover:border-violet-200 dark:hover:border-violet-800 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-100 dark:hover:shadow-slate-900/50 h-full flex flex-col">
+      <Card className="group cursor-pointer hover:border-brand-200 dark:hover:border-brand-800 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-100 dark:hover:shadow-slate-900/50 h-full flex flex-col">
         {/* Thumbnail area */}
-        <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-violet-50 to-indigo-50 dark:from-violet-900/10 dark:to-indigo-900/10 flex items-center justify-center mb-4 aspect-video">
+        <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-brand-50 to-brand-100 dark:from-brand-900/10 dark:to-brand-900/10 flex items-center justify-center mb-4 aspect-video">
           <span className="text-5xl">{course.emoji}</span>
           {course.isPremium && (
             <div className="absolute top-2 right-2 flex items-center gap-1 px-2 py-1 bg-amber-500/90 backdrop-blur rounded-lg text-white text-[10px] font-semibold">
@@ -218,20 +218,20 @@ function CourseCard({ course, levelColor, compact }: { course: typeof COURSES[0]
           )}
           {course.progress > 0 && (
             <div className="absolute bottom-0 left-0 right-0 h-1 bg-slate-200 dark:bg-slate-700">
-              <div className="h-full bg-violet-500" style={{ width: `${course.progress}%` }} />
+              <div className="h-full bg-brand-500" style={{ width: `${course.progress}%` }} />
             </div>
           )}
         </div>
 
         <div className="flex items-center justify-between mb-2">
-          <Badge variant={levelColor[course.level] as "green" | "yellow" | "violet"}>{course.level}</Badge>
+          <Badge variant={levelColor[course.level] as "green" | "yellow" | "brand"}>{course.level}</Badge>
           <div className="flex items-center gap-1 text-xs text-amber-500">
             <Star className="w-3 h-3 fill-amber-400" />
             <span className="font-medium">{course.rating}</span>
           </div>
         </div>
 
-        <h3 className="font-semibold text-sm text-slate-900 dark:text-white mb-1.5 leading-snug group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+        <h3 className="font-semibold text-sm text-slate-900 dark:text-white mb-1.5 leading-snug group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
           {course.title}
         </h3>
 

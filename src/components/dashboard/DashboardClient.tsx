@@ -78,7 +78,7 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
               change={12}
               description="vs last week"
               icon={<Zap className="w-4 h-4" />}
-              gradient="linear-gradient(135deg, #7c3aed, #4f46e5)"
+              gradient="linear-gradient(135deg, #c4622d, #a24e23)"
             />
             <Card className="flex flex-col">
               <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Day Streak</p>
@@ -123,8 +123,8 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
                   <AreaChart data={MOCK_GROWTH_DATA} margin={{ top: 5, right: 10, bottom: 5, left: 0 }}>
                     <defs>
                       <linearGradient id="growthGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#7c3aed" stopOpacity={0.15} />
-                        <stop offset="95%" stopColor="#7c3aed" stopOpacity={0} />
+                        <stop offset="5%" stopColor="#c4622d" stopOpacity={0.15} />
+                        <stop offset="95%" stopColor="#c4622d" stopOpacity={0} />
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.1)" />
@@ -132,9 +132,9 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
                     <YAxis tick={{ fontSize: 11, fill: "#94a3b8" }} axisLine={false} tickLine={false} domain={[50, 100]} />
                     <Tooltip
                       contentStyle={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "12px", fontSize: "12px" }}
-                      itemStyle={{ color: "#7c3aed" }}
+                      itemStyle={{ color: "#c4622d" }}
                     />
-                    <Area type="monotone" dataKey="score" stroke="#7c3aed" strokeWidth={2.5} fill="url(#growthGrad)" dot={{ fill: "#7c3aed", r: 4 }} activeDot={{ r: 6 }} />
+                    <Area type="monotone" dataKey="score" stroke="#c4622d" strokeWidth={2.5} fill="url(#growthGrad)" dot={{ fill: "#c4622d", r: 4 }} activeDot={{ r: 6 }} />
                   </AreaChart>
                 </ResponsiveContainer>
               </Card>
@@ -150,7 +150,7 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
                   <RadarChart data={MOCK_RADAR_DATA}>
                     <PolarGrid stroke="rgba(148,163,184,0.15)" />
                     <PolarAngleAxis dataKey="subject" tick={{ fontSize: 10, fill: "#94a3b8" }} />
-                    <Radar name="Score" dataKey="A" stroke="#7c3aed" fill="#7c3aed" fillOpacity={0.15} strokeWidth={2} />
+                    <Radar name="Score" dataKey="A" stroke="#c4622d" fill="#c4622d" fillOpacity={0.15} strokeWidth={2} />
                   </RadarChart>
                 </ResponsiveContainer>
               </Card>
@@ -165,22 +165,22 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
               <Card className="h-full">
                 <CardHeader>
                   <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
                       <Sparkles className="w-3.5 h-3.5 text-white" />
                     </div>
                     <CardTitle>AI Insights</CardTitle>
                   </div>
-                  <Badge variant="violet">New</Badge>
+                  <Badge variant="brand">New</Badge>
                 </CardHeader>
                 <div className="space-y-3">
                   {MOCK_AI_INSIGHTS.map((insight, i) => (
-                    <div key={i} className="flex gap-3 p-3 rounded-xl bg-violet-50 dark:bg-violet-900/15 border border-violet-100 dark:border-violet-800/30">
+                    <div key={i} className="flex gap-3 p-3 rounded-xl bg-brand-50 dark:bg-brand-900/15 border border-brand-100 dark:border-brand-800/30">
                       <span className="text-lg shrink-0">{["💡", "🎯", "📊"][i]}</span>
                       <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{insight}</p>
                     </div>
                   ))}
                 </div>
-                <Link href="/coach" className="mt-4 flex items-center gap-1.5 text-xs font-medium text-violet-600 dark:text-violet-400 hover:underline">
+                <Link href="/coach" className="mt-4 flex items-center gap-1.5 text-xs font-medium text-brand-600 dark:text-brand-400 hover:underline">
                   Talk to AI Coach <ChevronRight className="w-3.5 h-3.5" />
                 </Link>
               </Card>
@@ -217,7 +217,7 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
                 </div>
                 <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
                   <span>2/4 completed today</span>
-                  <Link href="/tracking" className="text-violet-600 dark:text-violet-400 hover:underline flex items-center gap-1">
+                  <Link href="/tracking" className="text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1">
                     View all <ChevronRight className="w-3 h-3" />
                   </Link>
                 </div>
@@ -250,7 +250,7 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
                     </div>
                   ))}
                 </div>
-                <Link href="/tracking#achievements" className="mt-4 flex items-center gap-1.5 text-xs font-medium text-violet-600 dark:text-violet-400 hover:underline">
+                <Link href="/tracking#achievements" className="mt-4 flex items-center gap-1.5 text-xs font-medium text-brand-600 dark:text-brand-400 hover:underline">
                   All achievements <ChevronRight className="w-3.5 h-3.5" />
                 </Link>
               </Card>
@@ -315,11 +315,11 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
                   ].map((course, i) => (
                     <Link key={i} href="/learning" className="block group">
                       <div className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                        <div className="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/20 flex items-center justify-center text-xl shrink-0">
+                        <div className="w-10 h-10 rounded-xl bg-brand-100 dark:bg-brand-900/20 flex items-center justify-center text-xl shrink-0">
                           {course.emoji}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-slate-800 dark:text-slate-200 truncate group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                          <p className="text-sm font-medium text-slate-800 dark:text-slate-200 truncate group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                             {course.title}
                           </p>
                           <div className="flex items-center gap-2 mt-1.5">
