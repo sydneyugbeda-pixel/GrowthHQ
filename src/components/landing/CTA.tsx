@@ -14,7 +14,7 @@ export function CTA() {
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0a0d14]">
       <div className="max-w-5xl mx-auto">
-        <div className="relative rounded-[2rem] overflow-hidden cloud-bg border border-[#ebeef5] dark:border-[#1e2330] p-12 sm:p-16 text-center shadow-[0_30px_90px_rgba(59,111,246,0.12)]">
+        <div className="relative rounded-[2rem] overflow-hidden cloud-bg border border-[#ebeef5] dark:border-[#1e2330] p-12 sm:p-16 text-center shadow-[0_30px_90px_rgba(196,98,45,0.12)]">
 
           {/* Floating accent cards */}
           <div className="hidden md:block absolute left-8 top-12 float-slow">

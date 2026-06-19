@@ -211,3 +211,31 @@ body {
   border-radius: 2px;
   margin: 0 auto;
 }
+
+/* ── Marquee strip (hero ticker) ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+.marquee-mask:hover .animate-marquee { animation-play-state: paused; }
+
+/* ── Slow rotation (badge) ── */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.spin-slow { animation: spin-slow 18s linear infinite; }
+
+/* ── Organic blob morph ── */
+@keyframes blobMorph {
+  0%, 100% { border-radius: 47% 53% 60% 40% / 50% 45% 55% 50%; }
+  50%      { border-radius: 56% 44% 43% 57% / 44% 56% 44% 56%; }
+}
+.blob-morph { animation: blobMorph 12s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .spin-slow, .blob-morph,
+  .float-slow, .float-med, .pulse-ring { animation: none !important; }
+}

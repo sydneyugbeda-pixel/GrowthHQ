@@ -72,7 +72,7 @@ export function AICoachShowcase() {
                 "Daily growth prompts & goal tracking",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-[#4D4D4D] dark:text-[#d1cfc9]">
-                  <span className="w-5 h-5 rounded-full bg-[#eef3ff] dark:bg-[#0e1730] flex items-center justify-center shrink-0">
+                  <span className="w-5 h-5 rounded-full bg-[#fcf1ea] dark:bg-[#2c1d12] flex items-center justify-center shrink-0">
                     <span className="w-2 h-2 rounded-full bg-[#C4622D]" />
                   </span>
                   <span className="text-sm font-medium">{item}</span>
@@ -87,7 +87,7 @@ export function AICoachShowcase() {
 
               {/* Chat header */}
               <div className="px-5 py-4 border-b border-[#f5f4f0] dark:border-[#2a2824] flex items-center gap-3 bg-[#fdfcfa] dark:bg-[#201f1c]">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#C4622D] to-[#DD8348] flex items-center justify-center pulse-ring shadow-md shadow-blue-500/20">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#C4622D] to-[#DD8348] flex items-center justify-center pulse-ring shadow-md shadow-brand-500/20">
                   <Zap className="w-4 h-4 text-white fill-white" />
                 </div>
                 <div>
@@ -122,7 +122,7 @@ export function AICoachShowcase() {
                     <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#C4622D] to-[#DD8348] shrink-0 flex items-center justify-center">
                       <Zap className="w-3 h-3 text-white fill-white" />
                     </div>
-                    <div className="bg-[#eef3ff] dark:bg-[#0e1730] rounded-2xl rounded-bl-sm px-4 py-3">
+                    <div className="bg-[#fcf1ea] dark:bg-[#2c1d12] rounded-2xl rounded-bl-sm px-4 py-3">
                       <div className="flex items-center gap-1">
                         {[0, 1, 2].map((i) => (
                           <span key={i} className="w-2 h-2 rounded-full bg-[#C4622D] typing-dot" />
@@ -142,7 +142,7 @@ export function AICoachShowcase() {
                         <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#C4622D] to-[#DD8348] shrink-0 flex items-center justify-center mt-0.5 shadow-sm">
                           <Zap className="w-3 h-3 text-white fill-white" />
                         </div>
-                        <div className="bg-[#eef3ff] dark:bg-[#0e1730] rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-xs border border-[#C4622D]/10">
+                        <div className="bg-[#fcf1ea] dark:bg-[#2c1d12] rounded-2xl rounded-tl-sm px-4 py-2.5 max-w-xs border border-[#C4622D]/10">
                           <p className="text-sm text-[#4D4D4D] dark:text-[#d1cfc9]">{convo.ai}</p>
                         </div>
                       </motion.div>

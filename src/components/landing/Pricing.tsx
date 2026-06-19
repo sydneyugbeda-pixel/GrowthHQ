@@ -105,7 +105,7 @@ export function Pricing() {
                 className={cn(
                   "relative rounded-2xl p-6 border transition-all",
                   isPro
-                    ? "bg-gradient-to-b from-[#C4622D] to-[#9E4D21] border-transparent text-white shadow-2xl shadow-blue-500/25 scale-[1.02]"
+                    ? "bg-gradient-to-b from-[#C4622D] to-[#9E4D21] border-transparent text-white shadow-2xl shadow-brand-500/25 scale-[1.02]"
                     : "bg-white dark:bg-[#1a1916] border-[#e8e8e4] dark:border-[#2a2824]"
                 )}
               >
@@ -120,16 +120,16 @@ export function Pricing() {
 
                 <div className="mb-5">
                   <h3 className={cn("font-black text-xl mb-1", isPro ? "text-white" : "text-[#1a1a1a] dark:text-white")}>{plan.name}</h3>
-                  <p className={cn("text-sm", isPro ? "text-blue-100" : "text-[#9ca3af]")}>{plan.description}</p>
+                  <p className={cn("text-sm", isPro ? "text-[#f9e4d4]" : "text-[#9ca3af]")}>{plan.description}</p>
                 </div>
 
                 <div className="mb-6">
                   <div className="flex items-end gap-1">
                     <span className={cn("text-4xl font-black", isPro ? "text-white" : "text-[#1a1a1a] dark:text-white")}>${price}</span>
-                    {price > 0 && <span className={cn("text-sm mb-1.5 font-medium", isPro ? "text-blue-100" : "text-[#9ca3af]")}>/mo</span>}
+                    {price > 0 && <span className={cn("text-sm mb-1.5 font-medium", isPro ? "text-[#f9e4d4]" : "text-[#9ca3af]")}>/mo</span>}
                   </div>
                   {annual && price > 0 && (
-                    <p className={cn("text-xs mt-1", isPro ? "text-blue-100" : "text-[#9ca3af]")}>Billed annually (${price * 12}/yr)</p>
+                    <p className={cn("text-xs mt-1", isPro ? "text-[#f9e4d4]" : "text-[#9ca3af]")}>Billed annually (${price * 12}/yr)</p>
                   )}
                 </div>
 
@@ -141,7 +141,7 @@ export function Pricing() {
                         ? "bg-white text-[#C4622D] hover:bg-orange-50 shadow-md"
                         : plan.id === "elite"
                         ? "bg-[#2D2D2D] text-white hover:bg-[#1a1a1a]"
-                        : "bg-[#eef3ff] text-[#C4622D] hover:bg-[#fce8d5] border border-[#C4622D]/20"
+                        : "bg-[#fcf1ea] text-[#C4622D] hover:bg-[#fce8d5] border border-[#C4622D]/20"
                     )}
                     icon={plan.id !== "free" ? <Zap className="w-4 h-4" /> : undefined}
                   >
@@ -152,7 +152,7 @@ export function Pricing() {
                 <ul className="space-y-2.5">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2.5 text-sm">
-                      <Check className={cn("w-4 h-4 shrink-0", isPro ? "text-blue-100" : "text-[#C4622D]")} />
+                      <Check className={cn("w-4 h-4 shrink-0", isPro ? "text-[#f9e4d4]" : "text-[#C4622D]")} />
                       <span className={isPro ? "text-orange-50" : "text-[#4D4D4D] dark:text-[#d1cfc9]"}>{feature}</span>
                     </li>
                   ))}

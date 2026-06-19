@@ -61,7 +61,7 @@ export function FAQ() {
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-[#eef3ff]/50 dark:hover:bg-[#0e1730]/30 transition-colors"
+                className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-[#fcf1ea]/50 dark:hover:bg-[#2c1d12]/30 transition-colors"
               >
                 <span className="font-semibold text-[#1a1a1a] dark:text-white text-sm pr-4">
                   {faq.q}

@@ -35,7 +35,7 @@ const steps = [
 ];
 
 const colorMap: Record<string, { bg: string; text: string }> = {
-  orange:  { bg: "bg-[#eef3ff] dark:bg-[#0e1730]",   text: "text-[#C4622D]" },
+  orange:  { bg: "bg-[#fcf1ea] dark:bg-[#2c1d12]",   text: "text-[#C4622D]" },
   amber:   { bg: "bg-amber-50 dark:bg-amber-900/20",   text: "text-amber-600 dark:text-amber-400" },
   charcoal:{ bg: "bg-[#f5f4f0] dark:bg-[#2a2824]",    text: "text-[#2D2D2D] dark:text-[#f5f4f0]" },
   green:   { bg: "bg-emerald-50 dark:bg-emerald-900/20", text: "text-emerald-600 dark:text-emerald-400" },

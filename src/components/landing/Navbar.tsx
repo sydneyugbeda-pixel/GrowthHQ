@@ -70,7 +70,7 @@ export function Navbar() {
               </Button>
             </Link>
             <Link href="/auth/signup">
-              <Button variant="gradient" size="sm" className="px-5 shadow-md shadow-blue-500/20">
+              <Button variant="gradient" size="sm" className="px-5 shadow-md shadow-brand-500/20">
                 Get Started →
               </Button>
             </Link>
@@ -101,7 +101,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block py-2.5 px-3 rounded-lg text-sm font-medium text-[#4D4D4D] dark:text-[#d1cfc9] hover:text-[#C4622D] hover:bg-[#eef3ff] dark:hover:bg-[#0e1730] transition-colors"
+                  className="block py-2.5 px-3 rounded-lg text-sm font-medium text-[#4D4D4D] dark:text-[#d1cfc9] hover:text-[#C4622D] hover:bg-[#fcf1ea] dark:hover:bg-[#2c1d12] transition-colors"
                 >
                   {link.label}
                 </a>
