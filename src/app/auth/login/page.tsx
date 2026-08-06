@@ -28,8 +28,7 @@ export default function LoginPage() {
       return;
     }
     toast.success("Welcome back!");
-    router.push("/dashboard");
-    router.refresh();
+    window.location.href = "/dashboard";
   };
 
   const handleGoogle = async () => {

@@ -26,7 +26,7 @@ export default function SignupPage() {
     }
     setLoading(true);
     const supabase = createClient();
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -39,9 +39,19 @@ export default function SignupPage() {
       setLoading(false);
       return;
     }
+
+    // If email confirmation is on, signUp returns a user but no session — sign in manually.
+    if (!data.session) {
+      const { error: signInError } = await supabase.auth.signInWithPassword({ email, password });
+      if (signInError) {
+        toast.success("Account created! Please check your email to confirm, then sign in.");
+        router.push("/auth/login");
+        return;
+      }
+    }
+
     toast.success("Account created! Setting up your profile...");
-    router.push("/onboarding");
-    router.refresh();
+    window.location.href = "/onboarding";
   };
 
   const handleGoogle = async () => {
