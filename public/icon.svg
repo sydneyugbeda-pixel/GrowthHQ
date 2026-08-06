@@ -1,0 +1,91 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hg1" x1="0%" y1="20%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="hg2" x1="20%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="hg3" x1="40%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+    <linearGradient id="hg4" x1="60%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
+    </linearGradient>
+    <clipPath id="iconClip">
+      <rect width="100" height="100" rx="18"/>
+    </clipPath>
+  </defs>
+
+  <rect width="100" height="100" rx="18" fill="#08102E"/>
+
+  <!-- Layer 1 — outermost / darkest: smooth round back, angular face profile -->
+  <path clip-path="url(#iconClip)" d="
+    M 63,10
+    C 76,9 88,22 90,42 C 90,60 84,74 70,82
+    L 56,87 L 42,87 L 30,83 L 24,76
+    L 22,69 L 22,64 L 24,60 L 26,58
+    L 13,47
+    L 25,40 L 30,34 L 37,26 L 46,18
+    C 52,13 58,10 63,10 Z
+  " fill="#101E5E"/>
+
+  <!-- Layer 2 -->
+  <path clip-path="url(#iconClip)" d="
+    M 62,14
+    C 74,13 85,25 87,44 C 87,62 81,75 68,82
+    L 55,86 L 42,86 L 31,82 L 26,76
+    L 24,69 L 24,65 L 26,61 L 28,59
+    L 16,48
+    L 27,42 L 32,36 L 39,28 L 48,20
+    C 53,15 58,13 62,14 Z
+  " fill="url(#hg1)"/>
+
+  <!-- Layer 3 -->
+  <path clip-path="url(#iconClip)" d="
+    M 60,18
+    C 71,17 81,28 83,46 C 83,63 77,76 65,82
+    L 54,85 L 42,85 L 33,81 L 28,75
+    L 27,69 L 27,65 L 29,61 L 31,59
+    L 19,49
+    L 29,43 L 34,38 L 41,30 L 49,22
+    C 54,18 58,17 60,18 Z
+  " fill="url(#hg2)" opacity="0.9"/>
+
+  <!-- Layer 4 — innermost / brightest -->
+  <path clip-path="url(#iconClip)" d="
+    M 58,23
+    C 68,22 77,32 78,48 C 79,65 73,76 62,82
+    L 52,84 L 42,83 L 35,79 L 31,73
+    L 30,68 L 30,64 L 32,61 L 34,59
+    L 23,50
+    L 32,44 L 36,39 L 42,33 L 50,25
+    C 54,22 56,22 58,23 Z
+  " fill="url(#hg3)" opacity="0.85"/>
+
+  <!-- Highlight — face-side shimmer -->
+  <path clip-path="url(#iconClip)" d="
+    M 57,27 C 63,26 70,34 70,48 C 70,62 65,72 57,76
+    L 53,77 L 51,29 C 53,27 55,26 57,27 Z
+  " fill="url(#hg4)" opacity="0.38"/>
+
+  <!-- Neural network — upper left -->
+  <circle cx="24" cy="22" r="3.5" fill="#60A5FA"/>
+  <circle cx="13" cy="14" r="2.2" fill="#93C5FD"/>
+  <circle cx="10" cy="29" r="2.2" fill="#7DD3FC"/>
+  <circle cx="16" cy="40" r="2.4" fill="#38BDF8"/>
+  <circle cx="30" cy="36" r="1.8" fill="#93C5FD"/>
+  <circle cx="34" cy="18" r="1.5" fill="#BAE6FD"/>
+
+  <line x1="24" y1="22" x2="13" y2="14" stroke="#60A5FA" stroke-width="1"   opacity="0.75"/>
+  <line x1="24" y1="22" x2="10" y2="29" stroke="#60A5FA" stroke-width="1"   opacity="0.75"/>
+  <line x1="24" y1="22" x2="16" y2="40" stroke="#60A5FA" stroke-width="0.9" opacity="0.65"/>
+  <line x1="24" y1="22" x2="30" y2="36" stroke="#7DD3FC" stroke-width="0.8" opacity="0.6"/>
+  <line x1="24" y1="22" x2="34" y2="18" stroke="#7DD3FC" stroke-width="0.8" opacity="0.6"/>
+  <line x1="10" y1="29" x2="16" y2="40" stroke="#93C5FD" stroke-width="0.6" opacity="0.45"/>
+  <line x1="13" y1="14" x2="34" y2="18" stroke="#BAE6FD" stroke-width="0.5" opacity="0.35"/>
+</svg>

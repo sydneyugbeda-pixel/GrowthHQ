@@ -51,10 +51,10 @@ export function Hero() {
           <div className="text-center lg:text-left">
             {/* Eyebrow */}
             <div
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#C4622D] mb-5"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#2563EB] mb-5"
               style={{ animation: "heroFadeUp 0.6s ease forwards", animationDelay: "0.05s", opacity: 0 }}
             >
-              <span className="h-px w-6 bg-[#C4622D]" />
+              <span className="h-px w-6 bg-[#2563EB]" />
               Hello there
               <span className="text-base">👋</span>
             </div>
@@ -84,10 +84,10 @@ export function Hero() {
             >
               <div className="flex -space-x-2.5">
                 {[
-                  { i: "AM", c: "from-[#C4622D] to-[#DD8348]" },
-                  { i: "JL", c: "from-[#DD8348] to-[#EBAE7E]" },
-                  { i: "SR", c: "from-[#9E4D21] to-[#C4622D]" },
-                  { i: "KT", c: "from-[#D06F38] to-[#E59B63]" },
+                  { i: "AM", c: "from-[#2563EB] to-[#3B82F6]" },
+                  { i: "JL", c: "from-[#3B82F6] to-[#EBAE7E]" },
+                  { i: "SR", c: "from-[#1D4ED8] to-[#2563EB]" },
+                  { i: "KT", c: "from-[#D06F38] to-[#60A5FA]" },
                 ].map((a) => (
                   <div
                     key={a.i}
@@ -99,10 +99,10 @@ export function Hero() {
               </div>
               <div className="text-left">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-lg font-bold text-[#C4622D]">10,000+</span>
+                  <span className="text-lg font-bold text-[#2563EB]">10,000+</span>
                   <span className="flex items-center gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-[#C4622D] text-[#C4622D]" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#2563EB] text-[#2563EB]" />
                     ))}
                   </span>
                   <span className="text-xs font-semibold text-[#5b5048] dark:text-[#a99c93]">(4.9 of 5)</span>
@@ -149,7 +149,7 @@ export function Hero() {
                     key={s.label}
                     href="#"
                     aria-label={s.label}
-                    className="w-8 h-8 rounded-full border border-[#e7d9cf] dark:border-[#322822] text-[#5b5048] dark:text-[#a99c93] flex items-center justify-center hover:bg-[#C4622D] hover:border-[#C4622D] hover:text-white transition-colors"
+                    className="w-8 h-8 rounded-full border border-[#e7d9cf] dark:border-[#322822] text-[#5b5048] dark:text-[#a99c93] flex items-center justify-center hover:bg-[#2563EB] hover:border-[#2563EB] hover:text-white transition-colors"
                   >
                     {s.icon}
                   </a>
@@ -166,7 +166,7 @@ export function Hero() {
             <div className="relative w-full max-w-md">
               {/* Organic orange blob */}
               <div className="absolute inset-0 flex items-center justify-center -z-10">
-                <div className="w-[94%] aspect-square bg-gradient-to-br from-[#C4622D] to-[#DD8348] blob-morph opacity-95 shadow-[0_40px_120px_rgba(196,98,45,0.35)]" />
+                <div className="w-[94%] aspect-square bg-gradient-to-br from-[#2563EB] to-[#3B82F6] blob-morph opacity-95 shadow-[0_40px_120px_rgba(37,99,235,0.35)]" />
               </div>
 
               {/* Main product card */}
@@ -184,7 +184,7 @@ export function Hero() {
               {/* Floating testimonial quote */}
               <div className="hidden md:block absolute -bottom-4 -left-6 lg:-left-12 z-20 float-med max-w-[210px]">
                 <div className="bg-white/90 dark:bg-[#1e1815]/90 backdrop-blur-xl rounded-2xl p-4 border border-white/70 dark:border-white/10 shadow-[0_16px_50px_rgba(45,45,45,0.12)]">
-                  <Quote className="w-5 h-5 text-[#C4622D] mb-1.5" />
+                  <Quote className="w-5 h-5 text-[#2563EB] mb-1.5" />
                   <p className="text-xs leading-relaxed text-[#5b5048] dark:text-[#d8ccc3] font-medium">
                     &ldquo;Growth HQ transformed how I lead my team — highly recommended!&rdquo;
                   </p>
@@ -203,7 +203,7 @@ export function Hero() {
               {MARQUEE_ITEMS.map((item) => (
                 <span key={item} className="flex items-center text-white text-lg sm:text-xl font-semibold tracking-tight whitespace-nowrap">
                   <span className="px-6">{item}</span>
-                  <span className="text-[#C4622D] text-2xl leading-none">+</span>
+                  <span className="text-[#2563EB] text-2xl leading-none">+</span>
                 </span>
               ))}
             </div>
@@ -221,7 +221,7 @@ function SkillPill({ tone, children }: { tone: "brand" | "dark"; children: React
     <span
       className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold shadow-lg backdrop-blur whitespace-nowrap ${
         tone === "brand"
-          ? "bg-[#C4622D] text-white shadow-[#C4622D]/30"
+          ? "bg-[#2563EB] text-white shadow-[#2563EB]/30"
           : "bg-[#2D2D2D] text-white shadow-black/20"
       }`}
     >
@@ -245,7 +245,7 @@ function RotatingBadge() {
         </text>
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-11 h-11 rounded-full bg-[#C4622D] flex items-center justify-center shadow-lg shadow-[#C4622D]/30">
+        <div className="w-11 h-11 rounded-full bg-[#2563EB] flex items-center justify-center shadow-lg shadow-[#2563EB]/30">
           <ArrowUpRight className="w-5 h-5 text-white" />
         </div>
       </div>
@@ -255,10 +255,10 @@ function RotatingBadge() {
 
 function CoachCard() {
   return (
-    <div className="rounded-3xl overflow-hidden border border-white/70 dark:border-white/10 shadow-[0_30px_90px_rgba(196,98,45,0.22)] bg-white dark:bg-[#1e1815]">
+    <div className="rounded-3xl overflow-hidden border border-white/70 dark:border-white/10 shadow-[0_30px_90px_rgba(37,99,235,0.22)] bg-white dark:bg-[#1e1815]">
       {/* Header */}
       <div className="flex items-center gap-3 px-5 py-4 border-b border-[#f0e8e2] dark:border-[#322822]">
-        <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-br from-[#C4622D] to-[#DD8348] flex items-center justify-center shrink-0">
+        <div className="relative w-10 h-10 rounded-2xl bg-gradient-to-br from-[#2563EB] to-[#3B82F6] flex items-center justify-center shrink-0">
           <Sparkles className="w-5 h-5 text-white" />
           <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-[#1e1815]" />
         </div>
@@ -276,7 +276,7 @@ function CoachCard() {
           </div>
         </div>
         <div className="flex gap-2">
-          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#C4622D] to-[#DD8348] shrink-0 flex items-center justify-center mt-0.5">
+          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#2563EB] to-[#3B82F6] shrink-0 flex items-center justify-center mt-0.5">
             <Sparkles className="w-3 h-3 text-white" />
           </div>
           <div className="bg-white dark:bg-[#1e1815] border border-[#f0e8e2] dark:border-[#322822] rounded-2xl rounded-tl-sm px-3.5 py-2.5 text-xs text-[#5b5048] dark:text-[#d8ccc3] leading-relaxed max-w-[85%]">
@@ -288,7 +288,7 @@ function CoachCard() {
         <div className="grid grid-cols-2 gap-2.5 pt-1">
           <div className="bg-white dark:bg-[#1e1815] rounded-xl p-3 border border-[#f0e8e2] dark:border-[#322822]">
             <div className="flex items-center gap-1.5 mb-1">
-              <TrendingUp className="w-3.5 h-3.5 text-[#C4622D]" />
+              <TrendingUp className="w-3.5 h-3.5 text-[#2563EB]" />
               <span className="text-[10px] text-[#8a7d74] font-medium">Growth Score</span>
             </div>
             <p className="text-lg font-bold text-[#2D2D2D] dark:text-white leading-none">847</p>
@@ -306,10 +306,10 @@ function CoachCard() {
         <div className="bg-white dark:bg-[#1e1815] rounded-xl p-3 border border-[#f0e8e2] dark:border-[#322822]">
           <div className="flex items-center justify-between mb-1.5">
             <span className="text-[10px] text-[#8a7d74] font-medium">Leadership</span>
-            <span className="text-[10px] font-bold text-[#C4622D]">71%</span>
+            <span className="text-[10px] font-bold text-[#2563EB]">71%</span>
           </div>
           <div className="h-1.5 bg-[#f0e8e2] dark:bg-[#322822] rounded-full overflow-hidden">
-            <div className="h-full rounded-full bg-gradient-to-r from-[#C4622D] to-[#EBAE7E]" style={{ width: "71%" }} />
+            <div className="h-full rounded-full bg-gradient-to-r from-[#2563EB] to-[#EBAE7E]" style={{ width: "71%" }} />
           </div>
         </div>
       </div>

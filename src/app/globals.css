@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
-/* ── Brand Color Tokens (Growth HQ: Warm Terracotta — from logo) ── */
+/* ── Brand Color Tokens (Growth HQ: Blue AI) ── */
 :root {
   --background: #ffffff;
   --foreground: #2D2D2D;
   --card: #ffffff;
   --card-foreground: #2D2D2D;
-  --border: #f0e8e2;
-  --muted: #faf6f3;
-  --muted-foreground: #7a6f68;
-  --primary: #C4622D;
-  --primary-light: #DD8348;
-  --primary-dark: #9E4D21;
+  --border: #DBEAFE;
+  --muted: #F0F9FF;
+  --muted-foreground: #64748B;
+  --primary: #2563EB;
+  --primary-light: #3B82F6;
+  --primary-dark: #1D4ED8;
   --primary-foreground: #ffffff;
-  --secondary: #fbf3ee;
-  --accent: #fcf1ea;
-  --ring: #C4622D;
+  --secondary: #EFF6FF;
+  --accent: #EFF6FF;
+  --ring: #2563EB;
   --charcoal: #2D2D2D;
   --charcoal-soft: #4D4D4D;
   --radius: 0.75rem;
@@ -23,22 +23,22 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #161210;
-    --foreground: #f7f1ec;
-    --card: #1e1815;
-    --card-foreground: #f7f1ec;
-    --border: #322822;
-    --muted: #211a16;
-    --muted-foreground: #a99c93;
-    --primary: #DD8348;
-    --primary-light: #EBAE7E;
-    --primary-dark: #C4622D;
+    --background: #0F1729;
+    --foreground: #E8F0FE;
+    --card: #1A2540;
+    --card-foreground: #E8F0FE;
+    --border: #1E3A6E;
+    --muted: #162040;
+    --muted-foreground: #93C5FD;
+    --primary: #3B82F6;
+    --primary-light: #60A5FA;
+    --primary-dark: #2563EB;
     --primary-foreground: #ffffff;
-    --secondary: #2a201b;
-    --accent: #2c1d12;
-    --ring: #DD8348;
-    --charcoal: #f7f1ec;
-    --charcoal-soft: #d8ccc3;
+    --secondary: #1E293B;
+    --accent: #1E3A8A;
+    --ring: #3B82F6;
+    --charcoal: #E8F0FE;
+    --charcoal-soft: #BFDBFE;
   }
 }
 
@@ -48,18 +48,18 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Brand terracotta scale (from logo #C4622D) */
-  --color-brand-50: #fdf4ee;
-  --color-brand-100: #fae6da;
-  --color-brand-200: #f2c9ae;
-  --color-brand-300: #e8a87e;
-  --color-brand-400: #dc8650;
-  --color-brand-500: #d06f38;
-  --color-brand-600: #c4622d;
-  --color-brand-700: #a24e23;
-  --color-brand-800: #813e1d;
-  --color-brand-900: #69341b;
-  --color-brand-950: #3a1b0d;
+  /* Brand blue scale */
+  --color-brand-50: #EFF6FF;
+  --color-brand-100: #DBEAFE;
+  --color-brand-200: #BFDBFE;
+  --color-brand-300: #93C5FD;
+  --color-brand-400: #60A5FA;
+  --color-brand-500: #3B82F6;
+  --color-brand-600: #2563EB;
+  --color-brand-700: #1D4ED8;
+  --color-brand-800: #1E40AF;
+  --color-brand-900: #1E3A8A;
+  --color-brand-950: #172554;
 }
 
 * { box-sizing: border-box; }
@@ -84,16 +84,16 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Gradient text — terracotta ── */
+/* ── Gradient text — blue ── */
 .gradient-text {
-  background: linear-gradient(135deg, #C4622D, #E59B63);
+  background: linear-gradient(135deg, #2563EB, #60A5FA);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-dark {
-  background: linear-gradient(135deg, #2D2D2D, #C4622D);
+  background: linear-gradient(135deg, #1E3A8A, #2563EB);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -115,25 +115,25 @@ body {
   width: 5px;
   height: 5px;
   border-radius: 9999px;
-  background: #C4622D;
+  background: #2563EB;
   display: inline-block;
 }
 
 /* ── Soft cloud gradient backdrop (hero / CTA) ── */
 .cloud-bg {
   background:
-    radial-gradient(60% 50% at 18% 8%, rgba(247, 214, 196, 0.7), transparent 70%),
-    radial-gradient(55% 50% at 82% 4%, rgba(244, 198, 168, 0.65), transparent 70%),
-    radial-gradient(70% 60% at 50% 0%, rgba(250, 226, 209, 0.6), transparent 75%),
-    linear-gradient(180deg, #fbf2ec 0%, #ffffff 62%);
+    radial-gradient(60% 50% at 18% 8%, rgba(191, 219, 254, 0.7), transparent 70%),
+    radial-gradient(55% 50% at 82% 4%, rgba(147, 197, 253, 0.65), transparent 70%),
+    radial-gradient(70% 60% at 50% 0%, rgba(219, 234, 254, 0.6), transparent 75%),
+    linear-gradient(180deg, #EFF6FF 0%, #ffffff 62%);
 }
 @media (prefers-color-scheme: dark) {
   .cloud-bg {
     background:
-      radial-gradient(60% 50% at 18% 8%, rgba(120, 64, 32, 0.45), transparent 70%),
-      radial-gradient(55% 50% at 82% 4%, rgba(150, 78, 40, 0.42), transparent 70%),
-      radial-gradient(70% 60% at 50% 0%, rgba(110, 60, 36, 0.4), transparent 75%),
-      linear-gradient(180deg, #1c150f 0%, #161210 62%);
+      radial-gradient(60% 50% at 18% 8%, rgba(30, 58, 138, 0.45), transparent 70%),
+      radial-gradient(55% 50% at 82% 4%, rgba(29, 78, 216, 0.42), transparent 70%),
+      radial-gradient(70% 60% at 50% 0%, rgba(37, 99, 235, 0.4), transparent 75%),
+      linear-gradient(180deg, #0F1729 0%, #0F172A 62%);
   }
 }
 
@@ -141,7 +141,7 @@ body {
 .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .card-hover:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 48px rgba(196, 98, 45, 0.12);
+  box-shadow: 0 16px 48px rgba(37, 99, 235, 0.12);
 }
 
 /* ── Soft float for hero cards ── */
@@ -162,7 +162,7 @@ body {
 
 /* ── Animated gradient bg ── */
 .animated-gradient {
-  background: linear-gradient(-45deg, #C4622D, #E59B63, #2D2D2D, #C4622D);
+  background: linear-gradient(-45deg, #2563EB, #60A5FA, #1E3A8A, #2563EB);
   background-size: 400% 400%;
   animation: gradient-shift 8s ease infinite;
 }
@@ -174,9 +174,9 @@ body {
 
 /* ── Pulse ring ── */
 @keyframes pulse-ring {
-  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(196, 98, 45, 0.4); }
-  70%  { transform: scale(1);    box-shadow: 0 0 0 10px rgba(196, 98, 45, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(196, 98, 45, 0); }
+  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+  70%  { transform: scale(1);    box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
 }
 .pulse-ring { animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite; }
 
@@ -207,7 +207,7 @@ body {
 .section-divider {
   width: 48px;
   height: 3px;
-  background: linear-gradient(90deg, #C4622D, #E59B63);
+  background: linear-gradient(90deg, #2563EB, #60A5FA);
   border-radius: 2px;
   margin: 0 auto;
 }

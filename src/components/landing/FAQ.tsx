@@ -61,14 +61,14 @@ export function FAQ() {
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-[#fcf1ea]/50 dark:hover:bg-[#2c1d12]/30 transition-colors"
+                className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-[#EFF6FF]/50 dark:hover:bg-[#1E3A8A]/30 transition-colors"
               >
                 <span className="font-semibold text-[#1a1a1a] dark:text-white text-sm pr-4">
                   {faq.q}
                 </span>
                 <ChevronDown
                   className={cn(
-                    "w-4 h-4 shrink-0 text-[#C4622D] transition-transform duration-200",
+                    "w-4 h-4 shrink-0 text-[#2563EB] transition-transform duration-200",
                     open === i && "rotate-180"
                   )}
                 />

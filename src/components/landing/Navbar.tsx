@@ -30,7 +30,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/95 dark:bg-[#0f0e0c]/95 backdrop-blur-xl border-b border-[#e8e8e4] dark:border-[#2a2824] shadow-sm"
+          ? "bg-white/95 dark:bg-[#0F1729]/95 backdrop-blur-xl border-b border-[#DBEAFE] dark:border-[#1E3A6E] shadow-sm"
           : "bg-transparent"
       )}
     >
@@ -55,7 +55,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-[#4D4D4D] dark:text-[#d1cfc9] hover:text-[#C4622D] dark:hover:text-[#DD8348] transition-colors"
+                className="text-sm font-medium text-[#4D4D4D] dark:text-[#93C5FD] hover:text-[#2563EB] dark:hover:text-[#60A5FA] transition-colors"
               >
                 {link.label}
               </a>
@@ -65,7 +65,7 @@ export function Navbar() {
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <Link href="/auth/login">
-              <Button variant="ghost" size="sm" className="font-semibold text-[#2D2D2D] dark:text-[#f5f4f0]">
+              <Button variant="ghost" size="sm" className="font-semibold text-[#2D2D2D] dark:text-[#E8F0FE]">
                 Log in
               </Button>
             </Link>
@@ -78,7 +78,7 @@ export function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg text-[#4D4D4D] dark:text-[#d1cfc9] hover:bg-[#f5f4f0] dark:hover:bg-[#2a2824]"
+            className="md:hidden p-2 rounded-lg text-[#4D4D4D] dark:text-[#93C5FD] hover:bg-[#EFF6FF] dark:hover:bg-[#1E3A6E]"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -93,7 +93,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-[#0f0e0c] border-t border-[#e8e8e4] dark:border-[#2a2824]"
+            className="md:hidden bg-white dark:bg-[#0F1729] border-t border-[#DBEAFE] dark:border-[#1E3A6E]"
           >
             <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => (
@@ -101,12 +101,12 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block py-2.5 px-3 rounded-lg text-sm font-medium text-[#4D4D4D] dark:text-[#d1cfc9] hover:text-[#C4622D] hover:bg-[#fcf1ea] dark:hover:bg-[#2c1d12] transition-colors"
+                  className="block py-2.5 px-3 rounded-lg text-sm font-medium text-[#4D4D4D] dark:text-[#93C5FD] hover:text-[#2563EB] hover:bg-[#EFF6FF] dark:hover:bg-[#1E3A6E] transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="pt-3 flex flex-col gap-2 border-t border-[#e8e8e4] dark:border-[#2a2824] mt-2">
+              <div className="pt-3 flex flex-col gap-2 border-t border-[#DBEAFE] dark:border-[#1E3A6E] mt-2">
                 <Link href="/auth/login" onClick={() => setMobileOpen(false)}>
                   <Button variant="outline" size="md" className="w-full">Log in</Button>
                 </Link>
