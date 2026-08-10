@@ -2,13 +2,31 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Share2, Link2, GitBranch, Mail, Phone, MapPin } from "lucide-react";
+import { Share2, Link2, GitBranch, Mail } from "lucide-react";
 
 const footerLinks = {
-  Product: ["Features", "Pricing", "AI Coach", "Assessments", "Learning Hub"],
-  Company: ["About", "Blog", "Careers", "Press"],
-  Resources: ["Documentation", "Help Center", "Community", "API"],
-  Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
+  Product: [
+    { label: "Features", href: "/#features" },
+    { label: "Pricing", href: "/#pricing" },
+    { label: "AI Coach", href: "/coach" },
+    { label: "Assessments", href: "/assessments" },
+    { label: "Learning Hub", href: "/learning" },
+  ],
+  Company: [
+    { label: "About", href: "#" },
+    { label: "Blog", href: "#" },
+    { label: "Careers", href: "#" },
+    { label: "Press", href: "#" },
+  ],
+  Resources: [
+    { label: "Help Center", href: "#" },
+    { label: "Community", href: "/community" },
+    { label: "API", href: "#" },
+  ],
+  Legal: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+  ],
 };
 
 export function Footer() {
@@ -28,13 +46,9 @@ export function Footer() {
 
             {/* Contact info like the reference */}
             <div className="space-y-2 mb-5">
-              <a href="mailto:hello@growthhq.io" className="flex items-center gap-2 text-sm text-[#9ca3af] hover:text-[#3B82F6] transition-colors">
+              <a href="mailto:hello@growthhq.online" className="flex items-center gap-2 text-sm text-[#9ca3af] hover:text-[#3B82F6] transition-colors">
                 <Mail className="w-3.5 h-3.5 shrink-0" />
-                hello@growthhq.io
-              </a>
-              <a href="tel:+15551234567" className="flex items-center gap-2 text-sm text-[#9ca3af] hover:text-[#3B82F6] transition-colors">
-                <Phone className="w-3.5 h-3.5 shrink-0" />
-                (555) 123-4567
+                hello@growthhq.online
               </a>
             </div>
 
@@ -63,9 +77,9 @@ export function Footer() {
               <h4 className="font-bold text-sm text-white mb-4 uppercase tracking-wider">{category}</h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
-                  <li key={link}>
-                    <Link href="#" className="text-sm text-[#9ca3af] hover:text-[#3B82F6] transition-colors">
-                      {link}
+                  <li key={link.label}>
+                    <Link href={link.href} className="text-sm text-[#9ca3af] hover:text-[#3B82F6] transition-colors">
+                      {link.label}
                     </Link>
                   </li>
                 ))}
