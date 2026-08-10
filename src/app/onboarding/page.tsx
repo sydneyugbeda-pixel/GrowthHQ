@@ -94,6 +94,7 @@ export default function OnboardingPage() {
 
   const handleGenerate = async () => {
     setGenerating(true);
+    setStep(5); // immediately show spinner on step 5
     try {
       const res = await fetch("/api/ai/onboarding", {
         method: "POST",
@@ -106,21 +107,23 @@ export default function OnboardingPage() {
       const supabase = createClient();
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
-        await supabase.from("growth_profiles").upsert({
-          user_id: user.id,
-          goals: data.goals,
-          challenges: data.challenges,
-          skill_level: data.skillLevel,
-          career_background: data.careerStage,
-          focus_areas: data.focusAreas,
-          growth_roadmap: result.roadmap,
-          weekly_focus: result.weeklyFocus,
-        });
-        await supabase.from("users").update({ onboarding_complete: true }).eq("id", user.id);
+        await Promise.all([
+          supabase.from("growth_profiles").upsert({
+            user_id: user.id,
+            goals: data.goals,
+            challenges: data.challenges,
+            skill_level: data.skillLevel,
+            career_background: data.careerStage,
+            focus_areas: data.focusAreas,
+            growth_roadmap: result.roadmap,
+            weekly_focus: result.weeklyFocus,
+          }),
+          supabase.from("users").update({ onboarding_complete: true, xp_points: 50 }).eq("id", user.id),
+        ]);
       }
-      setStep(5);
     } catch {
       toast.error("Failed to generate roadmap. Please try again.");
+      setStep(4); // go back so user can retry
     } finally {
       setGenerating(false);
     }
@@ -144,7 +147,7 @@ export default function OnboardingPage() {
   const [direction, setDirection] = useState(1);
 
   const goNext = () => {
-    if (step === 4) { handleGenerate(); return; }
+    if (step === 4) { setDirection(1); handleGenerate(); return; }
     setDirection(1);
     setStep((s) => s + 1);
   };

@@ -18,6 +18,10 @@ export default async function DashboardLayout({
     .eq("id", user.id)
     .single();
 
+  if (profile && profile.onboarding_complete === false) {
+    redirect("/onboarding");
+  }
+
   return (
     <div className="flex h-screen overflow-hidden bg-slate-50 dark:bg-slate-950">
       <Sidebar user={profile || { email: user.email }} />
