@@ -13,6 +13,7 @@ import { Progress } from "@/components/ui/Progress";
 import { cn } from "@/lib/utils";
 import { GROWTH_CATEGORIES } from "@/lib/utils";
 import { createClient } from "@/lib/supabase/client";
+import { track } from "@/lib/posthog";
 
 const TOTAL_STEPS = 6;
 
@@ -107,6 +108,11 @@ export default function OnboardingPage() {
       const supabase = createClient();
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
+        track("onboarding_completed", {
+          career_stage: data.careerStage,
+          skill_level: data.skillLevel,
+          focus_areas: data.focusAreas,
+        });
         await Promise.all([
           supabase.from("growth_profiles").upsert({
             user_id: user.id,

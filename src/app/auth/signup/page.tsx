@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { createClient } from "@/lib/supabase/client";
+import { track, identifyUser } from "@/lib/posthog";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -50,6 +51,9 @@ export default function SignupPage() {
       }
     }
 
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) identifyUser(user.id, { email, name: fullName });
+    track("signed_up", { method: "email" });
     toast.success("Account created! Setting up your profile...");
     window.location.href = "/onboarding";
   };

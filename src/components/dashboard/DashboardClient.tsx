@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import {
   Flame, Zap, Target, BookOpen, TrendingUp, Trophy,
@@ -18,6 +20,7 @@ import { Avatar } from "@/components/ui/Avatar";
 import { StatCard } from "@/components/ui/StatCard";
 import { TopBar } from "@/components/shared/TopBar";
 import { calculateLevel, xpProgress, xpForNextLevel, formatRelativeTime, GROWTH_CATEGORIES } from "@/lib/utils";
+import { track, identifyUser } from "@/lib/posthog";
 
 const MOCK_GROWTH_DATA = [
   { week: "W1", score: 62 }, { week: "W2", score: 68 }, { week: "W3", score: 71 },
@@ -46,6 +49,7 @@ interface DashboardClientProps {
 }
 
 export function DashboardClient({ user, assessments, journalEntries, habits, achievements }: DashboardClientProps) {
+  const searchParams = useSearchParams();
   const name = (user?.full_name as string) || "Growth Seeker";
   const xp = (user?.xp_points as number) || 0;
   const streak = (user?.streak_days as number) || 0;
@@ -53,6 +57,14 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
   const xpPct = xpProgress(xp);
   const nextLvlXp = xpForNextLevel(level);
   const currentLvlXp = xpForNextLevel(level - 1);
+
+  useEffect(() => {
+    if (user?.id) identifyUser(user.id as string, { email: user.email, name: user.full_name, plan: user.subscription_tier });
+    if (searchParams.get("payment") === "success") {
+      track("payment_succeeded", { plan: user?.subscription_tier });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const hour = new Date().getHours();
   const greeting = hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";

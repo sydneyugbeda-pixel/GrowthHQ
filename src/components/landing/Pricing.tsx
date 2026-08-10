@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Check, Zap, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/posthog";
 
 const plans = [
   {
@@ -86,6 +87,7 @@ export function Pricing() {
 
   async function handlePaidPlan(planId: string) {
     setLoading(planId);
+    track("payment_initiated", { plan: planId, billing: annual ? "annual" : "monthly" });
     try {
       await startCheckout(planId, annual ? "annual" : "monthly");
     } catch {

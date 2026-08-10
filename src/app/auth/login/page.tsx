@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { createClient } from "@/lib/supabase/client";
+import { track, identifyUser } from "@/lib/posthog";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -27,6 +28,9 @@ export default function LoginPage() {
       setLoading(false);
       return;
     }
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) identifyUser(user.id, { email });
+    track("logged_in", { method: "email" });
     toast.success("Welcome back!");
     window.location.href = "/dashboard";
   };
