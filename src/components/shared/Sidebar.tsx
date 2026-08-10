@@ -38,8 +38,7 @@ export function Sidebar({ user }: SidebarProps) {
     const supabase = createClient();
     await supabase.auth.signOut();
     toast.success("Signed out");
-    router.push("/");
-    router.refresh();
+    window.location.href = "/";
   };
 
   const isActive = (href: string, exact?: boolean) => {
@@ -137,7 +136,7 @@ export function Sidebar({ user }: SidebarProps) {
         {/* Upgrade prompt if free */}
         {!collapsed && user?.subscription_tier === "free" && (
           <Link
-            href="/pricing"
+            href="/#pricing"
             className="flex items-center gap-2.5 px-3 py-3 rounded-xl bg-gradient-to-r from-brand-50 to-brand-100 dark:from-brand-900/20 dark:to-brand-900/20 border border-brand-200/60 dark:border-brand-800/40 hover:from-brand-100 hover:to-brand-200 dark:hover:from-brand-900/30 dark:hover:to-brand-900/30 transition-all"
           >
             <Crown className="w-4 h-4 text-brand-600 shrink-0" />

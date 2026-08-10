@@ -317,7 +317,7 @@ export default function OnboardingPage() {
                         variant="gradient"
                         size="lg"
                         className="w-full justify-center"
-                        onClick={() => router.push("/dashboard")}
+                        onClick={() => { window.location.href = "/dashboard"; }}
                         iconRight={<ChevronRight className="w-5 h-5" />}
                       >
                         Go to my Dashboard

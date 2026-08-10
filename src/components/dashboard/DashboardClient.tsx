@@ -78,7 +78,7 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
               change={12}
               description="vs last week"
               icon={<Zap className="w-4 h-4" />}
-              gradient="linear-gradient(135deg, #c4622d, #a24e23)"
+              gradient="linear-gradient(135deg, #2563EB, #1D4ED8)"
             />
             <Card className="flex flex-col">
               <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Day Streak</p>
@@ -123,8 +123,8 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
                   <AreaChart data={MOCK_GROWTH_DATA} margin={{ top: 5, right: 10, bottom: 5, left: 0 }}>
                     <defs>
                       <linearGradient id="growthGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#c4622d" stopOpacity={0.15} />
-                        <stop offset="95%" stopColor="#c4622d" stopOpacity={0} />
+                        <stop offset="5%" stopColor="#2563EB" stopOpacity={0.15} />
+                        <stop offset="95%" stopColor="#2563EB" stopOpacity={0} />
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="rgba(148,163,184,0.1)" />
@@ -132,9 +132,9 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
                     <YAxis tick={{ fontSize: 11, fill: "#94a3b8" }} axisLine={false} tickLine={false} domain={[50, 100]} />
                     <Tooltip
                       contentStyle={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: "12px", fontSize: "12px" }}
-                      itemStyle={{ color: "#c4622d" }}
+                      itemStyle={{ color: "#2563EB" }}
                     />
-                    <Area type="monotone" dataKey="score" stroke="#c4622d" strokeWidth={2.5} fill="url(#growthGrad)" dot={{ fill: "#c4622d", r: 4 }} activeDot={{ r: 6 }} />
+                    <Area type="monotone" dataKey="score" stroke="#2563EB" strokeWidth={2.5} fill="url(#growthGrad)" dot={{ fill: "#2563EB", r: 4 }} activeDot={{ r: 6 }} />
                   </AreaChart>
                 </ResponsiveContainer>
               </Card>
@@ -150,7 +150,7 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
                   <RadarChart data={MOCK_RADAR_DATA}>
                     <PolarGrid stroke="rgba(148,163,184,0.15)" />
                     <PolarAngleAxis dataKey="subject" tick={{ fontSize: 10, fill: "#94a3b8" }} />
-                    <Radar name="Score" dataKey="A" stroke="#c4622d" fill="#c4622d" fillOpacity={0.15} strokeWidth={2} />
+                    <Radar name="Score" dataKey="A" stroke="#2563EB" fill="#2563EB" fillOpacity={0.15} strokeWidth={2} />
                   </RadarChart>
                 </ResponsiveContainer>
               </Card>
@@ -209,7 +209,7 @@ export function DashboardClient({ user, assessments, journalEntries, habits, ach
                       <span className={`flex-1 text-sm ${habit.completed ? "line-through text-slate-400" : "text-slate-700 dark:text-slate-300"}`}>
                         {habit.name as string}
                       </span>
-                      <span className="text-xs text-orange-500 font-medium shrink-0">
+                      <span className="text-xs text-brand-500 font-medium shrink-0">
                         🔥{(habit.streak as number) || 0}
                       </span>
                     </div>
