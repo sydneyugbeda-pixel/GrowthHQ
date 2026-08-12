@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Trophy, ArrowRight, RefreshCw, Share2, Download } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Progress } from "@/components/ui/Progress";
@@ -26,6 +27,7 @@ function getScoreLabel(score: number) {
 }
 
 export function AssessmentResult({ result, onDone }: AssessmentResultProps) {
+  const router = useRouter();
   const scoreInfo = getScoreLabel(result.score);
 
   return (
@@ -110,7 +112,7 @@ export function AssessmentResult({ result, onDone }: AssessmentResultProps) {
 
         {/* Action buttons */}
         <div className="flex flex-col sm:flex-row gap-3 pb-6">
-          <Button variant="gradient" size="lg" className="flex-1 justify-center" onClick={onDone} iconRight={<ArrowRight className="w-4 h-4" />}>
+          <Button variant="gradient" size="lg" className="flex-1 justify-center" onClick={() => router.push("/dashboard")} iconRight={<ArrowRight className="w-4 h-4" />}>
             Continue My Journey
           </Button>
           <Button variant="outline" size="lg" icon={<RefreshCw className="w-4 h-4" />} onClick={onDone}>
