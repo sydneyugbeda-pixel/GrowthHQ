@@ -68,47 +68,50 @@ export async function POST(request: Request) {
 
     const aiMessage = completion.choices[0].message.content || "";
 
-    // Persist the conversation
+    // Persist the conversation (non-fatal — don't let DB errors kill the response)
     let convId = conversationId;
+    try {
+      if (!convId) {
+        const titleCompletion = await openai.chat.completions.create({
+          model: "openai/gpt-4o-mini",
+          messages: [
+            { role: "system", content: "Generate a short 4-6 word title for this coaching conversation. Return only the title, no quotes." },
+            { role: "user", content: message },
+          ],
+          max_tokens: 20,
+        });
+        const title = titleCompletion.choices[0].message.content?.trim() || "New Conversation";
 
-    if (!convId) {
-      // Create a new conversation with auto-generated title
-      const titleCompletion = await openai.chat.completions.create({
-        model: "openai/gpt-4o-mini",
-        messages: [
-          { role: "system", content: "Generate a short 4-6 word title for this coaching conversation. Return only the title, no quotes." },
-          { role: "user", content: message },
-        ],
-        max_tokens: 20,
-      });
-      const title = titleCompletion.choices[0].message.content?.trim() || "New Conversation";
+        const { data: conv } = await supabase
+          .from("coach_conversations")
+          .insert({ user_id: user.id, title })
+          .select()
+          .single();
 
-      const { data: conv } = await supabase
-        .from("coach_conversations")
-        .insert({ user_id: user.id, title })
-        .select()
-        .single();
+        if (conv) convId = conv.id;
+      }
 
-      if (conv) convId = conv.id;
-    }
+      if (convId) {
+        await supabase.from("coach_messages").insert([
+          { conversation_id: convId, role: "user", content: message },
+          { conversation_id: convId, role: "assistant", content: aiMessage },
+        ]);
+        await supabase
+          .from("coach_conversations")
+          .update({ updated_at: new Date().toISOString() })
+          .eq("id", convId);
+      }
 
-    if (convId) {
-      await supabase.from("coach_messages").insert([
-        { conversation_id: convId, role: "user", content: message },
-        { conversation_id: convId, role: "assistant", content: aiMessage },
-      ]);
-      await supabase
-        .from("coach_conversations")
-        .update({ updated_at: new Date().toISOString() })
-        .eq("id", convId);
-
-      // Award XP for using the coach
-      await supabase.rpc("increment_xp", { user_id: user.id, xp_amount: 5 });
+      // Award XP — best-effort, never fail the request
+      supabase.rpc("increment_xp", { user_id: user.id, xp_amount: 5 }).catch(() => {});
+    } catch (dbError) {
+      console.error("Coach DB error (non-fatal):", dbError);
     }
 
     return NextResponse.json({ message: aiMessage, conversationId: convId });
   } catch (error) {
-    console.error("Coach API error:", error);
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error("Coach API error:", msg);
+    return NextResponse.json({ error: "AI error", detail: msg }, { status: 500 });
   }
 }

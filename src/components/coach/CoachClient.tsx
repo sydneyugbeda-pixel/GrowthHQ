@@ -95,8 +95,8 @@ export function CoachClient({ user, growthProfile, conversations: initialConvers
         }),
       });
 
-      if (!res.ok) throw new Error("Failed to get response");
       const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || data.error || "Failed to get response");
 
       const aiMsg: Message = {
         id: `ai-${Date.now()}`,
@@ -119,8 +119,8 @@ export function CoachClient({ user, growthProfile, conversations: initialConvers
           .limit(20);
         setConversations(convs || []);
       }
-    } catch {
-      toast.error("Failed to get AI response. Please try again.");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Failed to get AI response. Please try again.");
       setMessages((prev) => prev.filter((m) => m.id !== userMsg.id));
     } finally {
       setLoading(false);
