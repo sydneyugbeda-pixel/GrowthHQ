@@ -54,6 +54,8 @@ export default function SignupPage() {
     const { data: { user } } = await supabase.auth.getUser();
     if (user) identifyUser(user.id, { email, name: fullName });
     track("signed_up", { method: "email" });
+    // Fire welcome email — non-blocking
+    fetch("/api/auth/welcome", { method: "POST" }).catch(() => {});
     toast.success("Account created! Setting up your profile...");
     window.location.href = "/onboarding";
   };

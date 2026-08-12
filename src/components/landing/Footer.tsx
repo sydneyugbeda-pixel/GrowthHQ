@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Share2, Link2, GitBranch, Mail } from "lucide-react";
@@ -28,6 +29,55 @@ const footerLinks = {
     { label: "Terms of Service", href: "/terms" },
   ],
 };
+
+function NewsletterForm() {
+  const [email, setEmail] = useState("");
+  const [state, setState] = useState<"idle" | "loading" | "done" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setState("loading");
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      setState(res.ok ? "done" : "error");
+    } catch {
+      setState("error");
+    }
+  };
+
+  if (state === "done") {
+    return (
+      <div className="flex items-center gap-2 text-sm text-emerald-400 font-medium">
+        <span>✓</span> You&apos;re subscribed!
+      </div>
+    );
+  }
+
+  return (
+    <form className="flex gap-2 w-full sm:w-auto" onSubmit={handleSubmit}>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="your@email.com"
+        required
+        className="flex-1 sm:w-56 h-10 px-3 rounded-lg bg-white/10 border border-white/15 text-sm text-white placeholder:text-[#6b7280] focus:outline-none focus:border-[#2563EB] transition-colors"
+      />
+      <button
+        type="submit"
+        disabled={state === "loading"}
+        className="h-10 px-5 rounded-lg bg-[#2563EB] hover:bg-[#1D4ED8] disabled:opacity-60 text-white text-sm font-bold transition-colors"
+      >
+        {state === "loading" ? "..." : "Subscribe →"}
+      </button>
+    </form>
+  );
+}
 
 export function Footer() {
   return (
@@ -94,19 +144,7 @@ export function Footer() {
             <p className="font-bold text-white mb-1">Subscribe to our newsletter</p>
             <p className="text-sm text-[#9ca3af]">Growth tips, AI insights, and updates delivered weekly.</p>
           </div>
-          <form className="flex gap-2 w-full sm:w-auto" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="email"
-              placeholder="your@email.com"
-              className="flex-1 sm:w-56 h-10 px-3 rounded-lg bg-white/10 border border-white/15 text-sm text-white placeholder:text-[#6b7280] focus:outline-none focus:border-[#2563EB] transition-colors"
-            />
-            <button
-              type="submit"
-              className="h-10 px-5 rounded-lg bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-sm font-bold transition-colors"
-            >
-              Subscribe →
-            </button>
-          </form>
+          <NewsletterForm />
         </div>
 
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
