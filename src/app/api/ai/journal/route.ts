@@ -32,7 +32,7 @@ Write a brief, warm, insightful reflection (3-4 sentences) that:
 Keep it conversational and human — like a trusted mentor, not a therapist. Max 100 words.`;
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "openai/gpt-4o-mini",
       messages: [{ role: "user", content: prompt }],
       temperature: 0.8,
       max_tokens: 200,

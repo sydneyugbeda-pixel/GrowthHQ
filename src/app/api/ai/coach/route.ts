@@ -60,7 +60,7 @@ export async function POST(request: Request) {
     ];
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "openai/gpt-4o-mini",
       messages,
       temperature: 0.7,
       max_tokens: 600,
@@ -74,7 +74,7 @@ export async function POST(request: Request) {
     if (!convId) {
       // Create a new conversation with auto-generated title
       const titleCompletion = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
+        model: "openai/gpt-4o-mini",
         messages: [
           { role: "system", content: "Generate a short 4-6 word title for this coaching conversation. Return only the title, no quotes." },
           { role: "user", content: message },

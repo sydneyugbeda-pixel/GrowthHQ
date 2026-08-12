@@ -31,7 +31,7 @@ Provide TWO things in JSON format:
 Return valid JSON only: {"roadmap": "...", "weeklyFocus": "..."}`;
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "openai/gpt-4o-mini",
       messages: [{ role: "user", content: prompt }],
       temperature: 0.8,
       max_tokens: 600,

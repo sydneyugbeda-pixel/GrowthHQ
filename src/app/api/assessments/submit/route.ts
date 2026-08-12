@@ -3,7 +3,10 @@ import { NextResponse } from "next/server";
 import OpenAI from "openai";
 import { ASSESSMENTS } from "@/data/assessments";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+  baseURL: "https://openrouter.ai/api/v1",
+});
 
 export async function POST(request: Request) {
   try {
@@ -44,7 +47,7 @@ Provide a JSON response with:
 Return valid JSON: {"insights": "...", "recommendations": ["...", "...", "...", "..."]}`;
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "openai/gpt-4o-mini",
       messages: [{ role: "user", content: prompt }],
       temperature: 0.7,
       max_tokens: 800,
