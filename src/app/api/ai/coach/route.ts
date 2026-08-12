@@ -2,10 +2,12 @@ import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-  baseURL: "https://openrouter.ai/api/v1",
-});
+// client initialized per-request so the env var is always fresh
+function getOpenAI() {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) throw new Error("OPENAI_API_KEY env var is not set");
+  return new OpenAI({ apiKey, baseURL: "https://openrouter.ai/api/v1" });
+}
 
 const ATLAS_SYSTEM_PROMPT = `You are Atlas, an elite AI growth coach built into GrowthHQ — a premium personal development platform.
 
@@ -33,6 +35,7 @@ Keep responses concise but impactful — aim for 150-250 words unless more depth
 
 export async function POST(request: Request) {
   try {
+    const openai = getOpenAI();
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
