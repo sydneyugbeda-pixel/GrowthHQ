@@ -1,10 +1,15 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM = "GrowthHQ <noreply@growthhq.online>";
 
+function getResend() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) throw new Error("RESEND_API_KEY env var is not set");
+  return new Resend(apiKey);
+}
+
 export async function sendWelcomeEmail(to: string, name: string) {
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to,
     subject: "Welcome to GrowthHQ 🚀",
@@ -44,7 +49,7 @@ export async function sendWelcomeEmail(to: string, name: string) {
 }
 
 export async function sendNewsletterConfirmation(to: string) {
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to,
     subject: "You're on the GrowthHQ list 🎯",
