@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { Mail, Lock, Eye, EyeOff, User, Zap } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, User, Zap, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -16,6 +16,7 @@ function SignupForm() {
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -44,7 +45,7 @@ function SignupForm() {
       email,
       password,
       options: {
-        data: { full_name: fullName },
+        data: { full_name: fullName, phone },
         emailRedirectTo: `${window.location.origin}/auth/callback`,
       },
     });
@@ -132,6 +133,14 @@ function SignupForm() {
           onChange={(e) => setFullName(e.target.value)}
           leftIcon={<User className="w-4 h-4" />}
           required
+        />
+        <Input
+          label="Phone number"
+          type="tel"
+          placeholder="+234 800 000 0000"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          leftIcon={<Phone className="w-4 h-4" />}
         />
         <Input
           label="Email address"
