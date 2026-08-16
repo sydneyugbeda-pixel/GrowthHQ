@@ -20,6 +20,8 @@ export async function GET(request: Request) {
   return NextResponse.json({
     email: member.email,
     tier: member.subscription_tier,
-    orgName: (member.organizations as { name: string } | null)?.name ?? "",
+    orgName: (Array.isArray(member.organizations)
+      ? (member.organizations[0] as { name: string } | undefined)?.name
+      : (member.organizations as { name: string } | null)?.name) ?? "",
   });
 }

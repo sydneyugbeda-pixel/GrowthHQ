@@ -9,6 +9,7 @@ import { createClient } from "@/lib/supabase/client";
 interface TopBarProps {
   title?: string;
   subtitle?: string;
+  actions?: React.ReactNode;
 }
 
 const NAV_ITEMS = [
@@ -30,7 +31,7 @@ interface Notification {
   created_at: string;
 }
 
-export function TopBar({ title, subtitle }: TopBarProps) {
+export function TopBar({ title, subtitle, actions }: TopBarProps) {
   const router = useRouter();
 
   // ── Theme ──────────────────────────────────────────────────────────────
@@ -162,7 +163,10 @@ export function TopBar({ title, subtitle }: TopBarProps) {
           {subtitle && <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{subtitle}</p>}
         </div>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
+          {actions}
+          {/* Right controls */}
+          <div className="flex items-center gap-1">
           {/* Search */}
           <button
             onClick={openSearch}
@@ -245,6 +249,7 @@ export function TopBar({ title, subtitle }: TopBarProps) {
                 </div>
               </div>
             )}
+          </div>
           </div>
         </div>
       </header>
