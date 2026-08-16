@@ -32,7 +32,8 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const isAuthPage = request.nextUrl.pathname.startsWith("/auth");
+  const isAuthPage = request.nextUrl.pathname.startsWith("/auth") ||
+    request.nextUrl.pathname.startsWith("/enterprise/signup");
   const isDashboardPage =
     request.nextUrl.pathname.startsWith("/dashboard") ||
     request.nextUrl.pathname.startsWith("/coach") ||
@@ -41,7 +42,9 @@ export async function updateSession(request: NextRequest) {
     request.nextUrl.pathname.startsWith("/tracking") ||
     request.nextUrl.pathname.startsWith("/community") ||
     request.nextUrl.pathname.startsWith("/admin") ||
-    request.nextUrl.pathname.startsWith("/onboarding");
+    request.nextUrl.pathname.startsWith("/onboarding") ||
+    request.nextUrl.pathname.startsWith("/team") ||
+    request.nextUrl.pathname.startsWith("/settings");
 
   if (!user && isDashboardPage) {
     const url = request.nextUrl.clone();

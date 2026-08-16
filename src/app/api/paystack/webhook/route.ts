@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { createHmac } from "crypto";
+import { createHmac, randomUUID } from "crypto";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { sendTeamInviteEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
   const body = await request.text();
@@ -21,7 +22,18 @@ export async function POST(request: Request) {
   const event = JSON.parse(body) as {
     event: string;
     data: {
-      metadata?: { userId?: string; plan?: string };
+      metadata?: {
+        userId?: string;
+        plan?: string;
+        type?: string;
+        orgId?: string;
+        orgName?: string;
+        memberEmail?: string;
+        tier?: string;
+        billing?: string;
+        skillFocus?: string[];
+        inviterName?: string;
+      };
       customer?: { email?: string };
     };
   };
@@ -30,10 +42,41 @@ export async function POST(request: Request) {
 
   switch (event.event) {
     case "charge.success": {
-      const userId = event.data.metadata?.userId;
-      const plan = event.data.metadata?.plan;
-      if (userId && plan) {
-        await supabase.from("users").update({ subscription_tier: plan }).eq("id", userId);
+      const meta = event.data.metadata ?? {};
+
+      if (meta.type === "enterprise_seat") {
+        // Enterprise seat purchase — create pending invite
+        const { orgId, orgName, memberEmail, tier, skillFocus, inviterName } = meta;
+        if (orgId && memberEmail && tier) {
+          const inviteToken = randomUUID();
+          await supabase.from("org_members").upsert(
+            {
+              org_id: orgId,
+              email: memberEmail,
+              subscription_tier: tier,
+              skill_focus: skillFocus ?? [],
+              status: "pending",
+              invite_token: inviteToken,
+              invited_at: new Date().toISOString(),
+            },
+            { onConflict: "org_id,email" }
+          );
+          const inviteUrl = `${process.env.NEXT_PUBLIC_APP_URL}/auth/signup?invite=${inviteToken}`;
+          await sendTeamInviteEmail(
+            memberEmail,
+            orgName ?? "your organisation",
+            inviterName ?? "Your team admin",
+            tier,
+            inviteUrl
+          ).catch(console.error);
+        }
+      } else {
+        // Individual subscription purchase
+        const userId = meta.userId;
+        const plan = meta.plan;
+        if (userId && plan) {
+          await supabase.from("users").update({ subscription_tier: plan }).eq("id", userId);
+        }
       }
       break;
     }

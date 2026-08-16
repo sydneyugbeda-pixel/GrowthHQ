@@ -22,9 +22,20 @@ export default async function DashboardLayout({
     redirect("/onboarding");
   }
 
+  let isOrgOwner = false;
+  if (profile?.org_id) {
+    const { data: membership } = await supabase
+      .from("org_members")
+      .select("role")
+      .eq("user_id", user.id)
+      .eq("org_id", profile.org_id)
+      .single();
+    isOrgOwner = membership?.role === "owner" || membership?.role === "admin";
+  }
+
   return (
     <div className="flex h-screen overflow-hidden bg-slate-50 dark:bg-slate-950">
-      <Sidebar user={profile || { email: user.email }} />
+      <Sidebar user={{ ...(profile || { email: user.email }), isOrgOwner }} />
       <div className="flex-1 flex flex-col overflow-hidden min-w-0">
         {children}
       </div>

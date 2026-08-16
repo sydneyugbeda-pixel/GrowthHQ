@@ -48,6 +48,40 @@ export async function sendWelcomeEmail(to: string, name: string) {
   });
 }
 
+export async function sendTeamInviteEmail(
+  to: string, orgName: string, inviterName: string, tier: string, inviteUrl: string
+) {
+  return getResend().emails.send({
+    from: FROM,
+    to,
+    subject: `You've been invited to join ${orgName} on GrowthHQ`,
+    html: `
+      <div style="font-family: -apple-system, sans-serif; max-width: 560px; margin: 0 auto; padding: 40px 24px; color: #1e293b;">
+        <div style="margin-bottom: 32px;">
+          <span style="font-size: 24px; font-weight: 800; color: #2563eb;">Growth<span style="color: #1e293b;">HQ</span></span>
+        </div>
+        <h1 style="font-size: 26px; font-weight: 700; margin: 0 0 12px;">You're invited! 🎉</h1>
+        <p style="font-size: 16px; color: #475569; line-height: 1.6; margin: 0 0 8px;">
+          <strong>${inviterName}</strong> has invited you to join <strong>${orgName}</strong> on GrowthHQ with a
+          <strong>${tier.charAt(0).toUpperCase() + tier.slice(1)} seat</strong>.
+        </p>
+        <p style="font-size: 15px; color: #475569; line-height: 1.6; margin: 0 0 28px;">
+          You'll get full ${tier.charAt(0).toUpperCase() + tier.slice(1)}-tier access to AI coaching, assessments, and your personal growth roadmap — all paid for by your organisation.
+        </p>
+        <a href="${inviteUrl}"
+           style="display: inline-block; background: #2563eb; color: white; font-weight: 600; font-size: 15px; padding: 14px 28px; border-radius: 10px; text-decoration: none;">
+          Accept Invitation →
+        </a>
+        <p style="font-size: 13px; color: #94a3b8; margin: 24px 0 0;">
+          This invite link is unique to you. If you weren't expecting this, you can safely ignore it.
+        </p>
+        <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 32px 0 20px;" />
+        <p style="font-size: 12px; color: #94a3b8; margin: 0;">GrowthHQ · growthhq.online</p>
+      </div>
+    `,
+  });
+}
+
 export async function sendNewsletterConfirmation(to: string) {
   return getResend().emails.send({
     from: FROM,

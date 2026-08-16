@@ -389,3 +389,72 @@ INSERT INTO public.challenges (title, description, category, duration_days, xp_r
   ('Daily AI Coaching Streak', 'Chat with your AI coach every day for 21 days', 'coaching', 21, 200),
   ('Sales Mastery Month', 'Complete all sales assessments and coaching sessions', 'sales', 30, 300)
 ON CONFLICT DO NOTHING;
+
+-- ================================================================
+-- ENTERPRISE / TEAM ACCOUNTS
+-- ================================================================
+
+-- Add org_id to users (nullable — individual users have NULL)
+ALTER TABLE public.users ADD COLUMN IF NOT EXISTS org_id UUID;
+
+CREATE TABLE IF NOT EXISTS public.organizations (
+  id            UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  name          TEXT NOT NULL,
+  slug          TEXT UNIQUE NOT NULL,
+  owner_id      UUID REFERENCES public.users(id) ON DELETE RESTRICT NOT NULL,
+  billing_email TEXT NOT NULL,
+  created_at    TIMESTAMPTZ DEFAULT NOW(),
+  updated_at    TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS public.org_members (
+  id                UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  org_id            UUID REFERENCES public.organizations(id) ON DELETE CASCADE NOT NULL,
+  user_id           UUID REFERENCES public.users(id) ON DELETE SET NULL,
+  email             TEXT NOT NULL,
+  role              TEXT DEFAULT 'member' CHECK (role IN ('owner','admin','member')),
+  subscription_tier TEXT DEFAULT 'pro' CHECK (subscription_tier IN ('pro','elite')),
+  skill_focus       TEXT[] DEFAULT '{}',
+  status            TEXT DEFAULT 'pending' CHECK (status IN ('pending','active','deactivated')),
+  invite_token      TEXT UNIQUE,
+  invited_at        TIMESTAMPTZ DEFAULT NOW(),
+  joined_at         TIMESTAMPTZ,
+  created_at        TIMESTAMPTZ DEFAULT NOW(),
+  updated_at        TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(org_id, email)
+);
+
+-- Add FK after organizations table exists
+DO $$ BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM information_schema.table_constraints
+    WHERE constraint_name = 'users_org_id_fkey'
+  ) THEN
+    ALTER TABLE public.users ADD CONSTRAINT users_org_id_fkey
+      FOREIGN KEY (org_id) REFERENCES public.organizations(id) ON DELETE SET NULL;
+  END IF;
+END $$;
+
+ALTER TABLE public.organizations ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.org_members ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Org owners can manage their org" ON public.organizations;
+CREATE POLICY "Org owners can manage their org" ON public.organizations
+  FOR ALL TO authenticated
+  USING ((select auth.uid()) = owner_id)
+  WITH CHECK ((select auth.uid()) = owner_id);
+
+DROP POLICY IF EXISTS "Org owner can manage members" ON public.org_members;
+CREATE POLICY "Org owner can manage members" ON public.org_members
+  FOR ALL TO authenticated
+  USING (EXISTS (
+    SELECT 1 FROM public.organizations WHERE id = org_id AND owner_id = (select auth.uid())
+  ))
+  WITH CHECK (EXISTS (
+    SELECT 1 FROM public.organizations WHERE id = org_id AND owner_id = (select auth.uid())
+  ));
+
+DROP POLICY IF EXISTS "Members can view own membership" ON public.org_members;
+CREATE POLICY "Members can view own membership" ON public.org_members
+  FOR SELECT TO authenticated
+  USING (user_id = (select auth.uid()));

@@ -26,7 +26,7 @@ const navItems = [
 ];
 
 interface SidebarProps {
-  user?: { full_name?: string; email?: string; avatar_url?: string; subscription_tier?: string; xp_points?: number; streak_days?: number } | null;
+  user?: { full_name?: string; email?: string; avatar_url?: string; subscription_tier?: string; xp_points?: number; streak_days?: number; org_id?: string | null; isOrgOwner?: boolean } | null;
 }
 
 export function Sidebar({ user }: SidebarProps) {
@@ -129,6 +129,33 @@ export function Sidebar({ user }: SidebarProps) {
             </Link>
           );
         })}
+
+        {/* Team link — org owners/admins only */}
+        {user?.isOrgOwner && (
+          <Link
+            href="/team"
+            className={cn(
+              "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 group relative",
+              isActive("/team")
+                ? "bg-brand-50 dark:bg-brand-900/20 text-brand-700 dark:text-brand-300"
+                : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/70 hover:text-slate-900 dark:hover:text-slate-200"
+            )}
+          >
+            <span className={cn("shrink-0 transition-colors", isActive("/team") ? "text-brand-600 dark:text-brand-400" : "text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300")}>
+              <Users className="w-4.5 h-4.5" />
+            </span>
+            <AnimatePresence>
+              {!collapsed && (
+                <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="whitespace-nowrap">
+                  Team
+                </motion.span>
+              )}
+            </AnimatePresence>
+            {isActive("/team") && (
+              <motion.div layoutId="activeNav" className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-brand-600 rounded-r-full" />
+            )}
+          </Link>
+        )}
 
         {/* Divider */}
         <div className="my-3 border-t border-slate-100 dark:border-slate-800" />
