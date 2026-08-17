@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { TopBar } from "@/components/shared/TopBar";
 import { Card } from "@/components/ui/Card";
@@ -11,7 +12,7 @@ import { AssessmentRunner } from "./AssessmentRunner";
 import { AssessmentResult } from "./AssessmentResult";
 import { ASSESSMENTS, type AssessmentDef } from "@/data/assessments";
 import { cn } from "@/lib/utils";
-import { ChevronRight, Clock, BarChart3, Lock } from "lucide-react";
+import { ChevronRight, Clock, BarChart3, Lock, Sparkles, X } from "lucide-react";
 
 const colorMap: Record<string, string> = {
   blue: "bg-blue-100 dark:bg-blue-900/20 text-blue-600",
@@ -26,6 +27,47 @@ const colorMap: Record<string, string> = {
 interface AssessmentsClientProps {
   assessments: Record<string, unknown>[];
   userId: string;
+}
+
+function WelcomeBanner({ onStart }: { onStart: () => void }) {
+  const searchParams = useSearchParams();
+  const [visible, setVisible] = useState(searchParams.get("welcome") === "1");
+
+  if (!visible) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -12 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -12 }}
+      className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-brand-600 to-brand-700 p-5 mb-6 shadow-lg shadow-brand-500/20"
+    >
+      <button
+        onClick={() => { setVisible(false); window.history.replaceState({}, "", "/assessments"); }}
+        className="absolute top-3 right-3 p-1 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+      >
+        <X className="w-4 h-4" />
+      </button>
+      <div className="flex items-start gap-4">
+        <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+          <Sparkles className="w-5 h-5 text-white" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="font-bold text-white text-lg leading-tight mb-1">Welcome to GrowthHQ!</p>
+          <p className="text-brand-100 text-sm mb-4">
+            Take your first assessment to discover your strengths and kick off your personalised growth journey.
+          </p>
+          <button
+            onClick={() => { setVisible(false); onStart(); window.history.replaceState({}, "", "/assessments"); }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-brand-700 font-semibold text-sm hover:bg-brand-50 transition-colors"
+          >
+            <Sparkles className="w-4 h-4" />
+            Begin your growth journey
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
 }
 
 export function AssessmentsClient({ assessments, userId }: AssessmentsClientProps) {
@@ -57,6 +99,10 @@ export function AssessmentsClient({ assessments, userId }: AssessmentsClientProp
       <TopBar title="Assessments" subtitle="Measure and track your growth across 7 dimensions" />
       <div className="flex-1 overflow-y-auto p-6">
         <div className="max-w-5xl mx-auto space-y-6">
+
+          <Suspense fallback={null}>
+            <WelcomeBanner onStart={() => setActiveAssessment(ASSESSMENTS[0])} />
+          </Suspense>
 
           {/* Overall progress */}
           {assessments.length > 0 && (

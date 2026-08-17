@@ -34,10 +34,11 @@ export async function POST(request: Request) {
       invite_token: null,
     }).eq("id", member.id);
 
-    // Grant subscription tier and link org
+    // Grant subscription tier, link org, mark onboarding complete
     await admin.from("users").update({
       subscription_tier: member.subscription_tier,
       org_id: member.org_id,
+      onboarding_complete: true,
     }).eq("id", user.id);
 
     return NextResponse.json({ ok: true, tier: member.subscription_tier });

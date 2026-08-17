@@ -53,7 +53,7 @@ export default function EnterpriseSignupPage() {
       if (!res.ok) { toast.error(result.error || "Failed to create organisation"); return; }
 
       toast.success("Organisation created! Let's set up your team.");
-      window.location.href = "/team";
+      window.location.href = "/assessments?welcome=1";
     } finally {
       setLoading(false);
     }

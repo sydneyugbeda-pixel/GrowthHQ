@@ -14,7 +14,10 @@ export async function POST() {
       .eq("id", user.id)
       .single();
 
-    await sendWelcomeEmail(profile?.email || user.email!, profile?.full_name || "");
+    await Promise.all([
+      sendWelcomeEmail(profile?.email || user.email!, profile?.full_name || ""),
+      supabase.from("users").update({ onboarding_complete: true }).eq("id", user.id),
+    ]);
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("Welcome email error:", error);

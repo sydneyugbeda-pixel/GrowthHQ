@@ -83,7 +83,7 @@ function SignupForm() {
       toast.success("Account created! Setting up your profile...");
     }
 
-    window.location.href = "/onboarding";
+    window.location.href = "/assessments?welcome=1";
   };
 
   return (
