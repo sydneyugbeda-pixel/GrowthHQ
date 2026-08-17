@@ -24,7 +24,11 @@ export async function GET(request: Request) {
   if (code) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
-      const redirectTo = onboarding === "true" ? `${origin}/onboarding` : `${origin}${next}`;
+      // Fire welcome email + mark onboarding complete for email-confirmed signups
+      if (next.includes("assessments")) {
+        await fetch(`${origin}/api/auth/welcome`, { method: "POST" }).catch(() => {});
+      }
+      const redirectTo = onboarding === "true" ? `${origin}/assessments?welcome=1` : `${origin}${next}`;
       return NextResponse.redirect(redirectTo);
     }
   }

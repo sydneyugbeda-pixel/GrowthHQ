@@ -20,6 +20,7 @@ function SignupForm() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [awaitingConfirmation, setAwaitingConfirmation] = useState(false);
   const [inviteInfo, setInviteInfo] = useState<{ orgName: string; tier: string } | null>(null);
 
   useEffect(() => {
@@ -46,7 +47,7 @@ function SignupForm() {
       password,
       options: {
         data: { full_name: fullName, phone },
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
+        emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent("/assessments?welcome=1")}`,
       },
     });
     if (error) {
@@ -58,8 +59,8 @@ function SignupForm() {
     if (!data.session) {
       const { error: signInError } = await supabase.auth.signInWithPassword({ email, password });
       if (signInError) {
-        toast.success("Account created! Please check your email to confirm, then sign in.");
-        window.location.href = "/auth/login";
+        setLoading(false);
+        setAwaitingConfirmation(true);
         return;
       }
     }
@@ -85,6 +86,33 @@ function SignupForm() {
 
     window.location.href = "/assessments?welcome=1";
   };
+
+  if (awaitingConfirmation) {
+    return (
+      <div className="w-full max-w-md text-center">
+        <div className="w-16 h-16 rounded-2xl bg-brand-50 dark:bg-brand-900/20 flex items-center justify-center mx-auto mb-6">
+          <Mail className="w-8 h-8 text-brand-600" />
+        </div>
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Check your email</h2>
+        <p className="text-slate-500 dark:text-slate-400 mb-1">
+          We sent a confirmation link to
+        </p>
+        <p className="font-semibold text-slate-800 dark:text-slate-200 mb-6">{email}</p>
+        <p className="text-sm text-slate-400 dark:text-slate-500">
+          Click the link in the email to confirm your account and begin your growth journey.
+          Check your spam folder if you don&apos;t see it within a minute.
+        </p>
+        <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
+          <p className="text-sm text-slate-400 dark:text-slate-500">
+            Already confirmed?{" "}
+            <Link href="/auth/login" className="text-brand-600 dark:text-brand-400 font-medium hover:underline">
+              Sign in
+            </Link>
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full max-w-md">
